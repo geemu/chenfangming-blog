@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.geemu.persistence.dao.AssortmentDao">
+  <resultMap id="BaseResultMap" type="me.geemu.persistence.entity.Assortment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="assortment_name" jdbcType="VARCHAR" property="assortmentName" />
+    <result column="sort" jdbcType="BIGINT" property="sort" />
+    <result column="is_valid" jdbcType="BIT" property="isValid" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="create_id" jdbcType="BIGINT" property="createId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_id" jdbcType="BINARY" property="updateId" />
+  </resultMap>
+</mapper>
