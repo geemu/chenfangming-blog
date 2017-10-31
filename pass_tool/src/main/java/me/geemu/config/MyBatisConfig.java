@@ -5,6 +5,7 @@ import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -24,17 +25,14 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 public class MyBatisConfig implements TransactionManagementConfigurer {
-    @Resource
+    @Autowired
     DataSource dataSource;
-
-    public static final String TYPE_ALIASES_PACKAGE = "me.geemu.persistence.entity";
-    private static final String MAPPER_LOCATIONS = "classpath*:mapper/*.xml";
 
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage(TYPE_ALIASES_PACKAGE);
+        bean.setTypeAliasesPackage("me.geemu.persistence.entity");
 
         //分页插件
         PageHelper pageHelper = new PageHelper();
@@ -51,7 +49,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
-            bean.setMapperLocations(resolver.getResources(MAPPER_LOCATIONS));
+            bean.setMapperLocations(resolver.getResources("classpath*:mapper/*.xml"));
             return bean.getObject();
         } catch (Exception e) {
             e.printStackTrace();

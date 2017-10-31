@@ -19,7 +19,7 @@ public class MyBatisMapperScannerConfig {
     public static MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage(MyBatisConfig.TYPE_ALIASES_PACKAGE);
+        mapperScannerConfigurer.setBasePackage("me.geemu.persistence.entity");
         Properties properties = new Properties();
 //        properties.setProperty("mapper", "me.geemu.util.MyMapper");// 通用Mapper所在位置从包名me.geemu开始
         properties.setProperty("notEmpty", "false");
