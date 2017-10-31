@@ -64,6 +64,13 @@
             <version>3.4.4</version>
         </dependency>
 
+        <!--MyBatis分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+
         <!--MySQL-->
         <dependency>
             <groupId>mysql</groupId>
