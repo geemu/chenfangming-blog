@@ -23,14 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserInfoController {
 
     @Autowired
-    private UserInfoService passToolUserInfoService;
+    private UserInfoService userInfoService;
 
 
     @ApiOperation(value = "用户名密码登录", notes = "用户名密码登录", response = LoginResponseVO.class)
     @PostMapping("/login_account")
     public BaseResponse<LoginResponseVO> PassToolLoginByAccount(@RequestParam("account") String account, @RequestParam("password") String password) {
         BaseResponse<LoginResponseVO> response = new BaseResponse<>();
-        response.setContent(passToolUserInfoService.LoginByAccount(account, password));
+        response.setContent(userInfoService.LoginByAccount(account, password));
         return response;
     }
 }
