@@ -31,17 +31,17 @@
                              targetProject="${pom.current.project.dir}\src\main\java" type="XMLMAPPER"/>
 
 
-        <table schema="geemu" tableName="pass_tool_user_info" domainObjectName="UserInfo" mapperName="UserInfoDao">
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table schema="geemu" tableName="pass_tool_user_info" domainObjectName="UserInfo" mapperName="UserInfoDao">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
-        <table schema="geemu" tableName="pass_tool_account" domainObjectName="Account" mapperName="AccountDao">
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table schema="geemu" tableName="pass_tool_account" domainObjectName="Account" mapperName="AccountDao">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
-        <table schema="geemu" tableName="pass_tool_assortment" domainObjectName="Assortment" mapperName="AssortmentDao">
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table schema="geemu" tableName="pass_tool_assortment" domainObjectName="Assortment" mapperName="AssortmentDao">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>
