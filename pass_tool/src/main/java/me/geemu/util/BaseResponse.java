@@ -7,10 +7,10 @@ import me.geemu.enumerate.BaseResponseEnum;
 import java.io.Serializable;
 
 /**
- * Author: geemu
- * Email: cfmmail@sina.com
- * Date: 2017/9/3 17:21
- * Description:
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：通用返回体
  */
 @Data
 public class BaseResponse<T> implements Serializable {

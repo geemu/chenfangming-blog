@@ -20,7 +20,10 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * MyBatis基础配置  支持注解事务
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：MyBatis基础配置  支持注解事务
  */
 @Configuration
 @EnableTransactionManagement

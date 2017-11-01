@@ -8,10 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 /**
- * MyBatis扫描接口，使用的tk.mybatis.spring.mapper.MapperScannerConfigurer，如果你不使用通用Mapper，可以改为org.xxx...
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：MyBatis扫描接口，使用的tk.mybatis.spring.mapper.MapperScannerConfigurer，如果你不使用通用Mapper，可以改为org.xxx...
  */
-
-
 @Configuration
 @AutoConfigureAfter(MyBatisConfig.class)
 public class MyBatisMapperScannerConfig {

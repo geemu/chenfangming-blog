@@ -14,10 +14,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Author: geemu
- * Email: cfmmail@sina.com
- * Date: 2017/9/3 17:21
- * Description: swagger配置 用于生成api文档
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：swagger配置 用于生成api文档
  */
 @Configuration
 @EnableSwagger2

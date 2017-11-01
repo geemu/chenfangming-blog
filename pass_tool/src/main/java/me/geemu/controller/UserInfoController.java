@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Author: 陈方明
- * Email: cfmmail@sina.com
- * Date: 2017/10/10 17:16
- * Description:
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：用户控制器
  */
 @RestController
 @RequestMapping("user")
@@ -28,9 +28,9 @@ public class UserInfoController {
 
     @ApiOperation(value = "用户名密码登录", notes = "用户名密码登录", response = LoginResponseVO.class)
     @PostMapping("/login_account")
-    public BaseResponse<LoginResponseVO> PassToolLoginByAccount(@RequestParam("account") String account, @RequestParam("password") String password) {
+    public BaseResponse<LoginResponseVO> loginByAccount(@RequestParam("account") String account, @RequestParam("password") String password) {
         BaseResponse<LoginResponseVO> response = new BaseResponse<>();
-        response.setContent(userInfoService.LoginByAccount(account, password));
+        response.setContent(userInfoService.loginByAccount(account, password));
         return response;
     }
 }

@@ -2,11 +2,12 @@ package me.geemu.service;
 
 import me.geemu.domain.response.LoginResponseVO;
 
+
 /**
- * Author: 陈方明
- * Email: cfmmail@sina.com
- * Date: 2017/10/31 13:49
- * Description:
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：用户接口
  */
 public interface UserInfoService {
 
@@ -17,5 +18,5 @@ public interface UserInfoService {
      * @param password
      * @return
      */
-    LoginResponseVO LoginByAccount(String account, String password);
+    LoginResponseVO loginByAccount(String account, String password);
 }

@@ -4,11 +4,12 @@ import me.geemu.domain.response.LoginResponseVO;
 import me.geemu.service.UserInfoService;
 import org.springframework.stereotype.Service;
 
+
 /**
- * Author: 陈方明
- * Email: cfmmail@sina.com
- * Date: 2017/10/31 13:52
- * Description:
+ * @author geemu
+ * Email：cfmmail@sina.com
+ * Date：2017/10/10 17:16
+ * Despriction：用户接口实现类
  */
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
@@ -20,7 +21,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      * @return
      */
     @Override
-    public LoginResponseVO LoginByAccount(String account, String password) {
+    public LoginResponseVO loginByAccount(String account, String password) {
         return null;
     }
 }
