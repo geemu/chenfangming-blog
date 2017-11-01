@@ -21,7 +21,8 @@
         <skip_maven_deploy>true</skip_maven_deploy>
         <pom.current.project.dir>${basedir}</pom.current.project.dir>
         <pom.jdbc.generate.driver>com.mysql.jdbc.Driver</pom.jdbc.generate.driver>
-        <pom.jdbc.generate.url>jdbc:mysql://127.0.0.1:3306/geemu?useUnicode=true&amp;characterEncoding=UTF-8</pom.jdbc.generate.url>
+        <pom.jdbc.generate.url>jdbc:mysql://127.0.0.1:3306/geemu?useUnicode=true&amp;characterEncoding=UTF-8
+        </pom.jdbc.generate.url>
         <pom.jdbc.generate.user>root</pom.jdbc.generate.user>
         <pom.jdbc.generate.password>chen1436863821</pom.jdbc.generate.password>
         <pom.mybatis.entity.package>me.geemu.persistence.entity</pom.mybatis.entity.package>
