@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="100 seconds">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <property name="LOG_PATH" value="${LOG_PATH:-/pass_tool_temp}"/>
+    <property name="LOG_PATH" value="${LOG_PATH:-/temp}"/>
     <property name="PROJECT_NAME" value="pass_tool"/>
 
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>

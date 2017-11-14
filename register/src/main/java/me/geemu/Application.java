@@ -10,11 +10,11 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * Date：2017/10/10 17:16
  * Despriction：程序入口
  */
-@EnableEurekaServer        // 注解：启动一个服务注册中心提供给其他应用进行对话
 @SpringBootApplication
-public class RegisterApplication {
+@EnableEurekaServer        // 注解：启动一个服务注册中心提供给其他应用进行对话
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(RegisterApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

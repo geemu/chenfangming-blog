@@ -2,7 +2,6 @@ package me.geemu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author geemu
@@ -11,10 +10,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * Despriction：程序入口
  */
 @SpringBootApplication
-@EnableEurekaClient
-public class PassToolApplication {
+//@EnableEurekaClient
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(PassToolApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

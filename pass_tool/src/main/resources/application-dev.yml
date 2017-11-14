@@ -24,7 +24,7 @@ eureka:
 
 # 端口号
 server:
-    port: 8762
+    port: 80
     tomcat:
         max-threads: 1000
         url-encoding: UTF-8
