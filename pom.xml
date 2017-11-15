@@ -14,6 +14,7 @@
     <modules>
         <module>register</module>
         <module>pass_tool</module>
+        <module>spider_net_loan</module>
     </modules>
 
     <parent>
