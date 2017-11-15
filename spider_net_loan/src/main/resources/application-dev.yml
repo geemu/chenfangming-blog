@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: dev
+  application:
+          name: pass_tool
+  jackson:
+          serialization.write_dates_as_timestamps: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/geemu?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
+    username: root
+    password: chen1436863821
+    driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  instance:
+      hostname: localhost
+      preferIpAddress: true
+      status-page-url: http://localhost:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号
+      lease-renewal-interval-in-seconds: 5      # 心跳时间，即服务续约间隔时间（缺省为30s）
+      lease-expiration-duration-in-seconds: 10  # 发呆时间，即服务续约到期时间（缺省为90s）
+  client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+# 端口号
+server:
+    port: 80
+    tomcat:
+        max-threads: 1000
+        url-encoding: UTF-8
+
+# swagger开关 打开true/关闭false
+swagger:
+    enable: true
+
+# 日志
+logging:
+    config: classpath:logback.xml
