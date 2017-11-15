@@ -11,7 +11,7 @@ import java.util.List;
  * Date：2017/10/10 17:16
  * Despriction：账单
  */
-public class BillVO implements Serializable {
+public class BillResponse implements Serializable {
     private static final long serialVersionUID = -8145865776285690957L;
     /**
      * 账单id
