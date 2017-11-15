@@ -1,4 +1,4 @@
-package me.geemu.domain;
+package me.geemu.domain.response;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,7 +11,7 @@ import java.util.List;
  * Date：2017/10/10 17:16
  * Despriction：账单
  */
-public class BillResponse implements Serializable {
+public class BillVO implements Serializable {
     private static final long serialVersionUID = -8145865776285690957L;
     /**
      * 账单id
@@ -44,6 +44,6 @@ public class BillResponse implements Serializable {
     /**
      * 分期情况
      */
-    private List<BillPeriodResponse> periodList;
+    private List<BillPeriodVO> periodList;
 
 }
