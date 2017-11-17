@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   application:
-          name: pass_tool
+          name: nel_loan
   jackson:
           serialization.write_dates_as_timestamps: false
   datasource:
@@ -11,16 +11,16 @@ spring:
     password: chen1436863821
     driver-class-name: com.mysql.jdbc.Driver
 
-eureka:
-  instance:
-      hostname: localhost
-      preferIpAddress: true
-      status-page-url: http://localhost:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号
-      lease-renewal-interval-in-seconds: 5      # 心跳时间，即服务续约间隔时间（缺省为30s）
-      lease-expiration-duration-in-seconds: 10  # 发呆时间，即服务续约到期时间（缺省为90s）
-  client:
-      serviceUrl:
-        defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  instance:
+#      hostname: localhost
+#      preferIpAddress: true
+#      status-page-url: http://localhost:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号
+#      lease-renewal-interval-in-seconds: 5      # 心跳时间，即服务续约间隔时间（缺省为30s）
+#      lease-expiration-duration-in-seconds: 10  # 发呆时间，即服务续约到期时间（缺省为90s）
+#  client:
+#      serviceUrl:
+#        defaultZone: http://localhost:8761/eureka/
 
 # 端口号
 server:

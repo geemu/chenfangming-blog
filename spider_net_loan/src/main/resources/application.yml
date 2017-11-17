@@ -2,6 +2,6 @@ spring:
     profiles:
         active: dev
 
-#设置cookie
-cookie:
-    domain: test.api.geemu.me
+##设置cookie
+#cookie:
+#    domain: test.api.geemu.me
