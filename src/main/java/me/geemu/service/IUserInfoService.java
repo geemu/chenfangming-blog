@@ -1,6 +1,6 @@
 package me.geemu.service;
 
-import me.geemu.domain.model.UserInfo;
+import me.geemu.persistence.model.UserInfo;
 
 /**
  * @Author: Geemu

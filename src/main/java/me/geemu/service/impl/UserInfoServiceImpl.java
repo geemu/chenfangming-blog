@@ -1,7 +1,7 @@
 package me.geemu.service.impl;
 
-import me.geemu.domain.model.UserInfo;
 import me.geemu.persistence.dao.IUserInfoDao;
+import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

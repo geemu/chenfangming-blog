@@ -2,7 +2,7 @@ package me.geemu.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import me.geemu.domain.model.UserInfo;
+import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

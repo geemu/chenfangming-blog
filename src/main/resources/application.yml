@@ -12,7 +12,6 @@ spring:
       force: true
       charset: UTF-8
       enabled: true
-
 #  redis:
 #    host: 139.224.128.82
 #    host: localhost
@@ -32,7 +31,10 @@ server:
 
 # swagger开关 打开true/关闭false
 swagger:
-    enable: false
+    enable: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
 
 
 #  ssl:
