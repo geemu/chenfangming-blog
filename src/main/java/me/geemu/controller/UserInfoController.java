@@ -2,6 +2,10 @@ package me.geemu.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import me.geemu.domain.model.UserInfo;
+import me.geemu.service.IUserInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(description = "用户相关")
 public class UserInfoController {
 
-    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = String.class)
-    @PostMapping("/login")
-    public String login() {
-        return "";
+    @Autowired
+    private IUserInfoService userInfoService;
+
+    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = UserInfo.class)
+    @PostMapping("/{id}")
+    public UserInfo login(@PathVariable Integer id) {
+        UserInfo response;
+        response = userInfoService.findById(id);
+        return response;
     }
 }
