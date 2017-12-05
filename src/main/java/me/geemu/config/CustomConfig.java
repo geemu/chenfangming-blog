@@ -1,6 +1,5 @@
 package me.geemu.config;
 
-import org.apache.catalina.connector.Connector;
 import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -33,17 +33,11 @@ server:
 swagger:
     enable: true
 
-#mybatis:
-#  mapper-locations: classpath:mapper/*.xml
-
-
-#  ssl:
-#    key-store: classpath:214192387170810.pfx
-#    key-store-password: 214192387170810
-#    key-store-type: PKCS12
-
-#authority:
-#  token: hello
-#  secret: hello
+# Jwt相关
+audience:
+    clientId: d2Vmdw==
+    base64Secret: OTF6MjM0OTh5dGhncmlnZWhhbmdkYWVyZ2VyZ24=
+    name: geemu
+    expiresSecond: 604800 # 七天
 
 
