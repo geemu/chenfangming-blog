@@ -1,7 +1,10 @@
 package me.geemu.exception;
 
+import lombok.Data;
 import lombok.Getter;
 import me.geemu.enums.ResponseStatus;
+
+import java.io.Serializable;
 
 /**
  * @Author: Geemu
@@ -9,13 +12,20 @@ import me.geemu.enums.ResponseStatus;
  * Date: 2017/12/5 13:42
  * Description:
  */
-public class BusinessException extends RuntimeException {
+@Data
+public class BusinessException extends RuntimeException implements Serializable {
+    private static final long serialVersionUID = -3383376962482867983L;
 
-    @Getter
     private Integer code;
 
-    @Getter
     private String message;
+
+    public BusinessException() {
+    }
+
+    public BusinessException(Throwable cause) {
+        super(cause);
+    }
 
     public BusinessException(ResponseStatus responseStatus) {
         this.code = responseStatus.getCode();
