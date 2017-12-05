@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: Geemu
@@ -25,7 +22,7 @@ public class UserInfoController {
     private IUserInfoService userInfoService;
 
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = UserInfo.class)
-    @PostMapping("/{id}")
+    @GetMapping("/{id}")
     public UserInfo login(@PathVariable Integer id) {
         UserInfo response;
         response = userInfoService.findById(id);
