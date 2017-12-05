@@ -8,7 +8,7 @@ import lombok.Getter;
  * Date: 2017/12/5 13:51
  * Description:
  */
-public enum ResponseStatus {
+public enum ResponseEnum {
 
     /**
      * 未知错误
@@ -28,7 +28,7 @@ public enum ResponseStatus {
     /**
      * 无内容，用于put请求更新成功
      */
-    NO_CONTENT(204, "更新成功"),
+    NO_CONTENT(204, "其他异常"),
 
     /**
      * 非法请求
@@ -67,7 +67,7 @@ public enum ResponseStatus {
     @Getter
     private String message;
 
-    ResponseStatus(Integer code, String message) {
+    ResponseEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
