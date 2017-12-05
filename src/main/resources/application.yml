@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    name: dev
+    url: jdbc:mysql://localhost:3306/microshopping?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: root
+    password: chen1436863821
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+#  redis:
+#    host: 139.224.128.82
+#    host: localhost
+#    password: bosswu
+
+#  data:
+#    mongodb:
+#      port: 27017
+##      host: 139.224.128.82
+#      host: localhost
+#      database: jx3treasure_tieba
+
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+
+# swagger开关 打开true/关闭false
+swagger:
+    enable: false
+
+
+#  ssl:
+#    key-store: classpath:214192387170810.pfx
+#    key-store-password: 214192387170810
+#    key-store-type: PKCS12
+
+#authority:
+#  token: hello
+#  secret: hello
+
+
