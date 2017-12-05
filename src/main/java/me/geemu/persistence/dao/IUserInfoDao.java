@@ -2,6 +2,7 @@ package me.geemu.persistence.dao;
 
 import me.geemu.persistence.model.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * @Author: Geemu
@@ -17,5 +18,6 @@ public interface IUserInfoDao {
      * @param id
      * @return
      */
+    @Select("select * from user_info where id= #{id}")
     UserInfo findById(Integer id);
 }
