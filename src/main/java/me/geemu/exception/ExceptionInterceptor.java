@@ -21,6 +21,7 @@ public class ExceptionInterceptor {
 
     /**
      * 未授权
+     * 状态码改为401
      *
      * @param ue
      * @return
@@ -37,6 +38,7 @@ public class ExceptionInterceptor {
 
     /**
      * 资源未找到
+     * 状态码改为404
      *
      * @param ne
      * @return
@@ -51,13 +53,14 @@ public class ExceptionInterceptor {
     }
 
     /**
-     * 其他自定义异常
+     * 其他自定义异常 请求的范围无法被满足
+     * 状态码改为416
      *
      * @param be
      * @return
      */
     @ExceptionHandler(BusinessException.class)
-    @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
+    @ResponseStatus(value = HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE)
     public Object handleBusinessException(BusinessException be) {
         ErrorResponse response = new ErrorResponse();
         response.setCode(be.getCode());
