@@ -14,6 +14,7 @@ import java.io.Serializable;
  */
 @Data
 public class BusinessException extends RuntimeException implements Serializable {
+
     private static final long serialVersionUID = -3383376962482867983L;
 
     private Integer code;

@@ -1,5 +1,6 @@
 package me.geemu.exception;
 
+import me.geemu.domain.response.ErrorResponse;
 import me.geemu.enums.ResponseStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ public class ExceptionInterceptor {
      */
     @ExceptionHandler(BusinessException.class)
     public Object handleCustomException(BusinessException be) {
-        BusinessException response = new BusinessException();
+        ErrorResponse response = new ErrorResponse();
         response.setCode(be.getCode());
         response.setMessage(be.getMessage());
         return response;
@@ -39,8 +40,7 @@ public class ExceptionInterceptor {
     @ExceptionHandler(Exception.class)
     public Object handleAllException(Exception e) {
         logger.error("[后台未知异常，请联系开发小哥]", e);
-        e.printStackTrace();
-        BusinessException response = new BusinessException();
+        ErrorResponse response = new ErrorResponse();
         response.setCode(ResponseStatus.INTERNAL_SERVER_ERROR.getCode());
         response.setMessage(ResponseStatus.INTERNAL_SERVER_ERROR.getMessage());
         return response;
