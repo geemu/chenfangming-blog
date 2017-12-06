@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -46,7 +45,7 @@ public class ExceptionInterceptor {
      */
     @ExceptionHandler(ForbiddenException.class)
     @ResponseStatus(value = HttpStatus.FORBIDDEN)
-    public Object handleBusinessException(ForbiddenException be) {
+    public Object handleForbiddenException(ForbiddenException be) {
         ErrorResponse response = new ErrorResponse();
         response.setCode(be.getCode());
         response.setMessage(be.getMessage());
