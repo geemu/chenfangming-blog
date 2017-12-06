@@ -1,7 +1,7 @@
 package me.geemu.service.impl;
 
 import me.geemu.enums.ResponseEnum;
-import me.geemu.exception.BusinessException;
+import me.geemu.exception.ForbiddenException;
 import me.geemu.exception.UnAuthorizedException;
 import me.geemu.service.ITestService;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class TestServiceImpl implements ITestService {
         }
         if (type == 3) {
             System.out.println("其他异常");
-            throw new BusinessException(ResponseEnum.NO_CONTENT);
+            throw new ForbiddenException(ResponseEnum.NO_CONTENT);
         }
         if (type == 4) {
             System.out.println("未知异常");

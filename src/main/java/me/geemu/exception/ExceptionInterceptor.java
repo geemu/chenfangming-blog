@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -20,7 +21,7 @@ public class ExceptionInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(ExceptionInterceptor.class);
 
     /**
-     * 未授权
+     * 未授权 要求验证 登陆失败
      * 状态码改为401
      *
      * @param ue
@@ -35,6 +36,22 @@ public class ExceptionInterceptor {
         return response;
     }
 
+
+    /**
+     * 禁止 Forbidden 权限不够等
+     * 状态码改为403
+     *
+     * @param be
+     * @return
+     */
+    @ExceptionHandler(ForbiddenException.class)
+    @ResponseStatus(value = HttpStatus.FORBIDDEN)
+    public Object handleBusinessException(ForbiddenException be) {
+        ErrorResponse response = new ErrorResponse();
+        response.setCode(be.getCode());
+        response.setMessage(be.getMessage());
+        return response;
+    }
 
     /**
      * 资源未找到
@@ -52,21 +69,6 @@ public class ExceptionInterceptor {
         return response;
     }
 
-    /**
-     * 其他自定义异常 请求的范围无法被满足
-     * 状态码改为416
-     *
-     * @param be
-     * @return
-     */
-    @ExceptionHandler(BusinessException.class)
-    @ResponseStatus(value = HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE)
-    public Object handleBusinessException(BusinessException be) {
-        ErrorResponse response = new ErrorResponse();
-        response.setCode(be.getCode());
-        response.setMessage(be.getMessage());
-        return response;
-    }
 
     /**
      * 未知异常
