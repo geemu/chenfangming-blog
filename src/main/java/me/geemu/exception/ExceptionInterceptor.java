@@ -40,15 +40,15 @@ public class ExceptionInterceptor {
      * 禁止 Forbidden 权限不够等
      * 状态码改为403
      *
-     * @param be
+     * @param fb
      * @return
      */
     @ExceptionHandler(ForbiddenException.class)
     @ResponseStatus(value = HttpStatus.FORBIDDEN)
-    public Object handleForbiddenException(ForbiddenException be) {
+    public Object handleForbiddenException(ForbiddenException fb) {
         ErrorResponse response = new ErrorResponse();
-        response.setCode(be.getCode());
-        response.setMessage(be.getMessage());
+        response.setCode(fb.getCode());
+        response.setMessage(fb.getMessage());
         return response;
     }
 
