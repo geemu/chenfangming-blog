@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtConfig {
     @Value("${audience.clientId}")
-    private String clientId;
+    private  String clientId;
     @Value("${audience.base64Secret}")
     private String base64Secret;
     @Value("${audience.name}")
