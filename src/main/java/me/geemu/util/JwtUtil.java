@@ -6,6 +6,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import me.geemu.config.JwtConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
@@ -20,17 +22,13 @@ import java.util.Date;
  */
 public class JwtUtil {
 
-    @Autowired
-    private static JwtConfig jwtConfig;
-
     /**
      * 生成JWT字符串
      *
      * @param userId
      * @return
      */
-    public static AccessToken createJWT(Long userId) {
-        System.out.println(jwtConfig);
+    public static AccessToken createJWT(Long userId, JwtConfig jwtConfig) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         long nowMills = System.currentTimeMillis();
         Date now = new Date(nowMills);

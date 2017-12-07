@@ -2,6 +2,7 @@ package me.geemu.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import me.geemu.config.JwtConfig;
 import me.geemu.domain.response.StringResponse;
 import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
@@ -23,11 +24,12 @@ public class UserInfoController {
     @Autowired
     private IUserInfoService userInfoService;
 
+
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = StringResponse.class)
     @PostMapping("login")
-    public String login(@RequestParam("account") String account, @RequestParam("password") String password) {
-        UserInfo user = userInfoService.findByAccoundAndPassword(account, password);
-        JwtUtil.createJWT(user.getId());
-        return null;
+    public StringResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
+        StringResponse res = new StringResponse();
+        res.setResp(userInfoService.findByAccoundAndPassword(account, password));
+        return res;
     }
 }

@@ -18,11 +18,11 @@ public interface IUserInfoService {
     UserInfo findById(Integer id);
 
     /**
-     * 根据账号密码查找用户
+     * 根据账号密码查找用户 返回token
      *
      * @param account
      * @param password
      * @return
      */
-    UserInfo findByAccoundAndPassword(String account, String password);
+    String findByAccoundAndPassword(String account, String password);
 }
