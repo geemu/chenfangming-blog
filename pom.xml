@@ -12,9 +12,6 @@
     <name>microshopping</name>
     <description>微商城</description>
 
-    <modules>
-        <module>core</module>
-    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
