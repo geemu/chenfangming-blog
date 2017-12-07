@@ -28,7 +28,7 @@ public class JwtUtil {
      * @param userId
      * @return
      */
-    public static AccessToken createJWT(Long userId, JwtConfig jwtConfig) {
+    public static String createJWT(Long userId, JwtConfig jwtConfig) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         long nowMills = System.currentTimeMillis();
         Date now = new Date(nowMills);
@@ -53,10 +53,8 @@ public class JwtUtil {
             Date exp = new Date(expMills);
             builder.setExpiration(exp).setNotBefore(now);
         }
-        return new AccessToken(
-                builder.compact(),
-                "JWT",
-                jwtConfig.getExpiresSecond());
+        return builder.compact();
+
     }
 
     /**

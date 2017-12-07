@@ -51,6 +51,6 @@ public class UserInfoServiceImpl implements IUserInfoService {
         if (currentUser == null) {
             throw new UnAuthorizedException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
         }
-        return JwtUtil.createJWT(currentUser.getId(), jwtConfig).getAccessToken();
+        return JwtUtil.createJWT(currentUser.getId(), jwtConfig);
     }
 }

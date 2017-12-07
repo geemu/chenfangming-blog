@@ -1,5 +1,6 @@
 package me.geemu.controller;
 
+import io.jsonwebtoken.Claims;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.geemu.config.JwtConfig;
@@ -24,6 +25,8 @@ public class UserInfoController {
     @Autowired
     private IUserInfoService userInfoService;
 
+    @Autowired
+    private JwtConfig jwtConfig;
 
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = StringResponse.class)
     @PostMapping("login")
@@ -31,5 +34,13 @@ public class UserInfoController {
         StringResponse res = new StringResponse();
         res.setResp(userInfoService.findByAccoundAndPassword(account, password));
         return res;
+    }
+
+    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = boolean.class)
+    @PostMapping("check")
+    public boolean checkAccessToken(@RequestParam("accessToken") String accessToken) {
+        Claims cl = JwtUtil.parseJWT(accessToken, jwtConfig.getBase64Secret());
+        System.out.println(cl);
+        return true;
     }
 }
