@@ -9,5 +9,20 @@ import me.geemu.persistence.model.UserInfo;
  * Description:
  */
 public interface IUserInfoService {
+    /**
+     * 根据id查找用户
+     *
+     * @param id
+     * @return
+     */
     UserInfo findById(Integer id);
+
+    /**
+     * 根据账号密码查找用户
+     *
+     * @param account
+     * @param password
+     * @return
+     */
+    UserInfo findByAccoundAndPassword(String account, String password);
 }

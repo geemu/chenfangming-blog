@@ -6,9 +6,15 @@
 
     <groupId>me.geemu</groupId>
     <artifactId>microshopping</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>microshopping-tool</name>
+
+    <name>microshopping</name>
     <description>微商城</description>
+
+    <modules>
+        <module>core</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

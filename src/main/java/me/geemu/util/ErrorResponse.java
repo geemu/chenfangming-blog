@@ -1,4 +1,4 @@
-package me.geemu.domain.response;
+package me.geemu.util;
 
 import lombok.Data;
 

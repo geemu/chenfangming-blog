@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
  * Date: 2017/12/5 10:38
  * Description:
  */
-@Component
 @Data
+@Component
 public class JwtConfig {
     @Value("${audience.clientId}")
     private String clientId;
@@ -19,6 +19,9 @@ public class JwtConfig {
     private String base64Secret;
     @Value("${audience.name}")
     private String name;
+    /**
+     * 过期时间
+     */
     @Value("${audience.expiresSecond}")
     private Long expiresSecond;
 }

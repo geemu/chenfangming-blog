@@ -2,8 +2,10 @@ package me.geemu.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import me.geemu.domain.response.StringResponse;
 import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
+import me.geemu.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,11 +23,11 @@ public class UserInfoController {
     @Autowired
     private IUserInfoService userInfoService;
 
-    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = UserInfo.class)
-    @GetMapping("/{id}")
-    public UserInfo login(@PathVariable Integer id) {
-        UserInfo response;
-        response = userInfoService.findById(id);
-        return response;
+    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = StringResponse.class)
+    @PostMapping("login")
+    public String login(@RequestParam("account") String account, @RequestParam("password") String password) {
+        UserInfo user = userInfoService.findByAccoundAndPassword(account, password);
+        JwtUtil.createJWT(user.getId());
+        return null;
     }
 }

@@ -26,7 +26,7 @@ swagger:
 audience:
     clientId: d2Vmdw==
     base64Secret: OTF6MjM0OTh5dGhncmlnZWhhbmdkYWVyZ2VyZ24=
-    name: geemu
+    name: 91zhangdan
     expiresSecond: 604800 # 七天
 
 security:

@@ -1,5 +1,7 @@
 package me.geemu.service.impl;
 
+import me.geemu.enums.ResponseEnum;
+import me.geemu.exception.UnAuthorizedException;
 import me.geemu.persistence.dao.IUserInfoDao;
 import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
@@ -18,10 +20,32 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Autowired
     private IUserInfoDao userDao;
 
+    /**
+     * 根据id查找用户
+     *
+     * @param id
+     * @return
+     */
     @Override
     public UserInfo findById(Integer id) {
         UserInfo response;
         response = userDao.findById(id);
         return response;
+    }
+
+    /**
+     * 根据账号密码查找用户
+     *
+     * @param account
+     * @param password
+     * @return
+     */
+    @Override
+    public UserInfo findByAccoundAndPassword(String account, String password) {
+        UserInfo currentUser = userDao.findByAccoundAndPassword(account, password);
+        if (currentUser == null) {
+            throw new UnAuthorizedException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
+        }
+        return currentUser;
     }
 }
