@@ -12,17 +12,6 @@ spring:
       force: true
       charset: UTF-8
       enabled: true
-#  redis:
-#    host: 139.224.128.82
-#    host: localhost
-#    password: bosswu
-
-#  data:
-#    mongodb:
-#      port: 27017
-##      host: 139.224.128.82
-#      host: localhost
-#      database: jx3treasure_tieba
 
 server:
   port: 80
@@ -40,4 +29,6 @@ audience:
     name: geemu
     expiresSecond: 604800 # 七天
 
-
+security:
+  basic:
+    enabled: false
