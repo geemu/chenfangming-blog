@@ -33,7 +33,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             claims = JwtUtil.parseJWT(authorization, jwtConfig.getBase64Secret());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ForbiddenException(ResponseEnum.FORBIDDEN_ERROR);
+            throw new UnAuthorizedException(ResponseEnum.FORBIDDEN_ERROR);
         }
         if (claims != null) {
             request.setAttribute("userId", claims.get("userId"));

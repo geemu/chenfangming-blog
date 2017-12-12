@@ -27,8 +27,6 @@ public class JwtUtil {
      */
     public static String createJWT(Long userId, JwtConfig jwtConfig) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-        long nowMills = System.currentTimeMillis();
-        Date now = new Date(nowMills);
         /**
          * 生成签名密匙
          */
@@ -46,8 +44,12 @@ public class JwtUtil {
          * 添加token过期时间
          */
         if (jwtConfig.getExpiresSecond() >= 0) {
-            long expMills = nowMills + jwtConfig.getExpiresSecond();
+            long nowMills = System.currentTimeMillis();
+            Date now = new Date(nowMills);
+            long expMills = nowMills + jwtConfig.getExpiresSecond() * 1000;
             Date exp = new Date(expMills);
+            System.out.println(now.getTime());
+            System.out.println(exp.getTime());
             builder.setExpiration(exp).setNotBefore(now);
         }
         return builder.compact();
