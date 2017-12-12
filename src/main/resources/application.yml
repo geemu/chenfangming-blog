@@ -29,6 +29,10 @@ audience:
     name: geemu
     expiresSecond: 604800 # 七天
 
+#设置cookie
+cookie:
+    domain: www.geemu.me
+
 security:
   basic:
     enabled: false

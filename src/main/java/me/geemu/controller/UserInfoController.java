@@ -2,13 +2,19 @@ package me.geemu.controller;
 
 import io.jsonwebtoken.Claims;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import me.geemu.config.JwtConfig;
+import me.geemu.domain.request.ChangePasswordRequest;
 import me.geemu.domain.response.LoginResponse;
+import me.geemu.enums.ResponseEnum;
+import me.geemu.exception.ForbiddenException;
 import me.geemu.service.IUserInfoService;
-import me.geemu.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * @Author: Geemu
@@ -24,8 +30,6 @@ public class UserInfoController {
     @Autowired
     private IUserInfoService userInfoService;
 
-    @Autowired
-    private JwtConfig jwtConfig;
 
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = LoginResponse.class)
     @PostMapping("login")
@@ -35,14 +39,12 @@ public class UserInfoController {
         return res;
     }
 
-    @ApiOperation(value = "jwt解密", notes = "jwt解密", response = boolean.class)
-    @PostMapping("check")
-    public boolean checkAccessToken(@RequestParam("accessToken") String accessToken) {
-        Claims cl = JwtUtil.parseJWT(accessToken, jwtConfig.getBase64Secret());
-        if (cl != null) {
-            System.out.println(cl.get("userId"));
-            return true;
-        }
-        return false;
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Authorization", value = "token", required = true, dataType = "String", paramType = "header")
+    })
+    @ApiOperation(value = "修改密码", notes = "修改密码", response = boolean.class)
+    @PutMapping("password")
+    public boolean checkAccessToken(@RequestBody ChangePasswordRequest changePasswordRequest) {
+        return true;
     }
 }

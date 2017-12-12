@@ -37,7 +37,7 @@ public class ExceptionInterceptor {
 
 
     /**
-     * 禁止 Forbidden 权限不够等
+     * 禁止 Forbidden 权限不够，参数校验失败等
      * 状态码改为403
      *
      * @param fb

@@ -1,5 +1,6 @@
 package me.geemu.domain.response;
 
+import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
 /**
@@ -10,5 +11,6 @@ import lombok.Data;
  */
 @Data
 public class LoginResponse {
+    @ApiParam("token")
     private String token;
 }

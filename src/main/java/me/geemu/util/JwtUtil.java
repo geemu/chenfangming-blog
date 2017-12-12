@@ -61,18 +61,13 @@ public class JwtUtil {
      * @param base64Security
      * @return
      */
-    public static Claims parseJWT(String jsonWebToken, String base64Security) {
-        try {
-            Claims claims = Jwts
-                    .parser()
-                    .setSigningKey(DatatypeConverter.parseBase64Binary(base64Security))
-                    .parseClaimsJws(jsonWebToken)
-                    .getBody();
-            return claims;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public static Claims parseJWT(String jsonWebToken, String base64Security) throws Exception {
+        Claims claims = Jwts
+                .parser()
+                .setSigningKey(DatatypeConverter.parseBase64Binary(base64Security))
+                .parseClaimsJws(jsonWebToken)
+                .getBody();
+        return claims;
     }
 
 

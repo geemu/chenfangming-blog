@@ -15,6 +15,16 @@ public enum ResponseEnum {
      */
     ACCOUNT_OR_PASSWORD_FAIL(10001, "用户名或密码错误"),
 
+    /**
+     * 参数校验失败
+     */
+    PARAMS_ERROR(10002, "参数校验失败"),
+
+    /**
+     * 无效的token
+     */
+    FORBIDDEN_ERROR(10003, "无效的token"),
+
 
     /**
      * 服务器内部错误
