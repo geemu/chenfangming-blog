@@ -9,6 +9,6 @@ import lombok.Data;
  * Description:
  */
 @Data
-public class StringResponse {
-    private String resp;
+public class LoginResponse {
+    private String token;
 }

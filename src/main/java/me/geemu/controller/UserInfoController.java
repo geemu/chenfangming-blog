@@ -4,8 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.geemu.config.JwtConfig;
-import me.geemu.domain.response.StringResponse;
-import me.geemu.persistence.model.UserInfo;
+import me.geemu.domain.response.LoginResponse;
 import me.geemu.service.IUserInfoService;
 import me.geemu.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,19 +27,22 @@ public class UserInfoController {
     @Autowired
     private JwtConfig jwtConfig;
 
-    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = StringResponse.class)
+    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = LoginResponse.class)
     @PostMapping("login")
-    public StringResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
-        StringResponse res = new StringResponse();
-        res.setResp(userInfoService.findByAccoundAndPassword(account, password));
+    public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
+        LoginResponse res = new LoginResponse();
+        res.setToken(userInfoService.findByAccoundAndPassword(account, password));
         return res;
     }
 
-    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = boolean.class)
+    @ApiOperation(value = "jwt解密", notes = "jwt解密", response = boolean.class)
     @PostMapping("check")
     public boolean checkAccessToken(@RequestParam("accessToken") String accessToken) {
         Claims cl = JwtUtil.parseJWT(accessToken, jwtConfig.getBase64Secret());
-        System.out.println(cl);
-        return true;
+        if (cl != null) {
+            System.out.println(cl.get("userId"));
+            return true;
+        }
+        return false;
     }
 }
