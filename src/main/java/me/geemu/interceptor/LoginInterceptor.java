@@ -27,7 +27,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String authorization = request.getHeader("Authorization");
-        Claims claims = null;
+        Claims claims;
         try {
             claims = JwtUtil.parseJWT(authorization, jwtConfig.getBase64Secret());
         } catch (Exception e) {

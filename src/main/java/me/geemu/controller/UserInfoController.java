@@ -43,7 +43,8 @@ public class UserInfoController {
     })
     @ApiOperation(value = "修改密码", notes = "修改密码", response = boolean.class)
     @PutMapping("password")
-    public boolean checkAccessToken(@RequestBody ChangePasswordRequest changePasswordRequest) {
+    public boolean checkAccessToken(@RequestBody ChangePasswordRequest changePasswordRequest, @RequestAttribute("userId") long userId) {
+        System.out.println("用户id：" + userId);
         return true;
     }
 }
