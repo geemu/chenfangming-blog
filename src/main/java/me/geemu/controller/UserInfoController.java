@@ -10,6 +10,7 @@ import me.geemu.domain.response.LoginResponse;
 import me.geemu.enums.ResponseEnum;
 import me.geemu.exception.ForbiddenException;
 import me.geemu.service.IUserInfoService;
+import me.geemu.util.RequestUtil;
 import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -31,20 +32,31 @@ public class UserInfoController {
     @Autowired
     private IUserInfoService userInfoService;
 
-
+    /**
+     * 根据用户名密码登陆
+     *
+     * @param account
+     * @param password
+     * @return
+     */
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
         return new LoginResponse(userInfoService.findByAccoundAndPassword(account, password));
     }
 
+    /**
+     * 修改密码
+     *
+     * @param changePasswordRequest
+     * @return
+     */
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "Authorization", value = "token", required = true, dataType = "String", paramType = "header")
+            @ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "String", paramType = "header")
     })
     @ApiOperation(value = "修改密码", notes = "修改密码", response = boolean.class)
     @PutMapping("password")
-    public boolean checkAccessToken(@RequestBody ChangePasswordRequest changePasswordRequest, @RequestAttribute("userId") long userId) {
-        System.out.println("用户id：" + userId);
-        return true;
+    public boolean updatePassword(@RequestBody ChangePasswordRequest changePasswordRequest, @RequestHeader("Authorization") String token) {
+        return userInfoService.updatePassword(changePasswordRequest.getOldPassword(), changePasswordRequest.getNewPassword(), RequestUtil.getUserId(), token);
     }
 }

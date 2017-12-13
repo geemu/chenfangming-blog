@@ -95,12 +95,12 @@ public final class RedisUtil {
     }
 
     /**
-     * 读取缓存
+     * 根据key查询值
      *
      * @param key
      * @return
      */
-    public Object get(final String key) {
+    public Object selectByKey(final String key) {
         Object result = null;
         ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
         result = operations.get(key);
