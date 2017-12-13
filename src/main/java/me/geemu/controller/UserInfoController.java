@@ -10,6 +10,7 @@ import me.geemu.domain.response.LoginResponse;
 import me.geemu.enums.ResponseEnum;
 import me.geemu.exception.ForbiddenException;
 import me.geemu.service.IUserInfoService;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;

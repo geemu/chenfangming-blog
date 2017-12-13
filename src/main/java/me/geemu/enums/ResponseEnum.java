@@ -9,22 +9,34 @@ import lombok.Getter;
  * Description:
  */
 public enum ResponseEnum {
+    /**
+     * 禁止访问 默认
+     */
+    FORBIDDEN_ERROR_DEFAULT(-10000, "禁止访问"),
 
     /**
-     * 登陆失败
+     * 资源不存在 默认
      */
-    ACCOUNT_OR_PASSWORD_FAIL(10001, "用户名或密码错误"),
+    NOT_FOUND_ERROR_DEFAULT(-10001, "资源不存在"),
 
     /**
-     * 无效的token
+     * 未授权 默认
      */
-    FORBIDDEN_ERROR(10003, "无效的token"),
-
+    UNAUTHORIZED_ERROR_DEFAULT(-10002, "未授权"),
 
     /**
      * 服务器内部错误
      */
-    INTERNAL_SERVER_ERROR(500, "内部错误"),;
+    INTERNAL_SERVER_ERROR(500, "服务器内部错误"),
+
+    /**
+     * 无效的token
+     */
+    INVALID_TOKEN_ERROR(-10003, "无效的token"),
+    /**
+     * 登陆失败
+     */
+    ACCOUNT_OR_PASSWORD_FAIL(-10004, "用户名或密码错误");
 
     @Getter
     private Integer code;

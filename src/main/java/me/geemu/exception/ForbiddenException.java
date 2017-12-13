@@ -25,4 +25,14 @@ public class ForbiddenException extends RuntimeException implements Serializable
         this.message = responseEnum.getMessage();
     }
 
+    public ForbiddenException(String message) {
+        this.code = ResponseEnum.FORBIDDEN_ERROR_DEFAULT.getCode();
+        this.message = message;
+    }
+
+    public ForbiddenException(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
 }
