@@ -2,11 +2,6 @@ package me.geemu.domain.request;
 
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * @Author: Geemu
