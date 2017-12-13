@@ -6,12 +6,16 @@ spring:
     password: chen1436863821
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  redis:
+    host: 172.17.8.51
+    port: 6379
+    password:
   http:
     encoding:
       force: true
       charset: UTF-8
       enabled: true
+
 
 server:
   port: 80

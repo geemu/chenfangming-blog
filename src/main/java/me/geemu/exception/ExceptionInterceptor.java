@@ -1,6 +1,6 @@
 package me.geemu.exception;
 
-import me.geemu.util.ErrorResponse;
+import me.geemu.domain.ErrorResponse;
 import me.geemu.enums.ResponseEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
