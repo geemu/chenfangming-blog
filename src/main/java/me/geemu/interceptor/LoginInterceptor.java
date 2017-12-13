@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import me.geemu.config.JwtConfig;
 import me.geemu.enums.ResponseEnum;
 import me.geemu.exception.ForbiddenException;
-import me.geemu.exception.UnAuthorizedException;
 import me.geemu.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,7 +34,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             throw new ForbiddenException(ResponseEnum.INVALID_TOKEN_ERROR);
         }
         if (claims != null) {
+            // 读取userId 和 过期时间
+            System.out.println(claims.get("exp"));
             request.setAttribute("userId", claims.get("userId"));
+            request.setAttribute("expireTime", claims.get("exp"));
             return true;
         }
         // 伪造的Authorization 或者没有登陆

@@ -13,4 +13,9 @@ import lombok.Data;
 public class LoginResponse {
     @ApiParam("token")
     private String token;
+
+    public LoginResponse(String token) {
+        this.token = token;
+    }
+
 }

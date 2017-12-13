@@ -7,8 +7,11 @@ import me.geemu.persistence.dao.IUserInfoDao;
 import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
 import me.geemu.util.JwtUtil;
+import me.geemu.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 /**
  * @Author: Geemu
@@ -24,6 +27,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
 
     @Autowired
     private JwtConfig jwtConfig;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * 根据id查找用户
@@ -51,6 +57,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
         if (currentUser == null) {
             throw new UnAuthorizedException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
         }
-        return JwtUtil.createJWT(currentUser.getId(), jwtConfig);
+        String token = JwtUtil.createJWT(currentUser.getId(), jwtConfig);
+        // 将token写入redis
+        redisUtil.put("login_user:" + token, currentUser, jwtConfig.getExpiresSecond());
+        return token;
     }
 }

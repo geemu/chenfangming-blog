@@ -35,9 +35,7 @@ public class UserInfoController {
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
-        LoginResponse res = new LoginResponse();
-        res.setToken(userInfoService.findByAccoundAndPassword(account, password));
-        return res;
+        return new LoginResponse(userInfoService.findByAccoundAndPassword(account, password));
     }
 
     @ApiImplicitParams({

@@ -48,8 +48,6 @@ public class JwtUtil {
             Date now = new Date(nowMills);
             long expMills = nowMills + jwtConfig.getExpiresSecond() * 1000;
             Date exp = new Date(expMills);
-            System.out.println(now.getTime());
-            System.out.println(exp.getTime());
             builder.setExpiration(exp).setNotBefore(now);
         }
         return builder.compact();
