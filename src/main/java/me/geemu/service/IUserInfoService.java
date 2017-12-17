@@ -28,10 +28,10 @@ public interface IUserInfoService {
 
     /**
      * 修改密码
-     *
      * @param oldPassword
      * @param newPassword
      * @param userId
+     * @param token
      * @return
      */
     boolean updatePassword(String oldPassword, String newPassword, Long userId, String token);
