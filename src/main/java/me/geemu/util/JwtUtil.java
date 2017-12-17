@@ -20,12 +20,13 @@ import java.util.Date;
 public class JwtUtil {
 
     /**
-     * 生成JWT字符串
+     * 成JWT字符串
      *
-     * @param userId
+     * @param accessToken
+     * @param jwtConfig
      * @return
      */
-    public static String createJWT(Long userId, JwtConfig jwtConfig) {
+    public static String createJWT(AccessToken accessToken, JwtConfig jwtConfig) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         /**
          * 生成签名密匙
@@ -36,7 +37,9 @@ public class JwtUtil {
          * 添加构成JWT的参数
          */
         JwtBuilder builder = Jwts.builder().setHeaderParam("type", "JWT")
-                .claim("userId", userId)
+                .claim("userId", accessToken.getUserId())
+                .claim("userName", accessToken.getPassword())
+                .claim("password", accessToken.getPassword())
                 .setIssuer(jwtConfig.getClientId())
                 .setAudience(jwtConfig.getName())
                 .signWith(signatureAlgorithm, signingKey);

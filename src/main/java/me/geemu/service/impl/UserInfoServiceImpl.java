@@ -7,6 +7,7 @@ import me.geemu.exception.UnAuthorizedException;
 import me.geemu.persistence.dao.IUserInfoDao;
 import me.geemu.persistence.model.UserInfo;
 import me.geemu.service.IUserInfoService;
+import me.geemu.util.AccessToken;
 import me.geemu.util.JwtUtil;
 import me.geemu.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
         if (currentUser == null) {
             throw new UnAuthorizedException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
         }
-        String token = JwtUtil.createJWT(currentUser.getId(), jwtConfig);
+        String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getAccount(), currentUser.getPassword()), jwtConfig);
         // 将token写入redis
         redisUtil.put("login_user:" + token, currentUser, jwtConfig.getExpiresSecond());
         return token;
