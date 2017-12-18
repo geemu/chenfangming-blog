@@ -58,7 +58,7 @@ public class LogAspect {
         logSb.append(String.format("[TargetMethod]\t%s\r\n", targetMethod));
         logSb.append(String.format("[ResponseBody]\t%s\r\n", JSON.toJSONString(response)));
         if (e instanceof UnAuthorizedException || e instanceof BusinessException || e instanceof NotFoundException) {
-            logger.info(logSb.toString(), e);
+            logger.warn(logSb.toString(), e);
         } else {
             logger.error(logSb.toString(), e);
         }
