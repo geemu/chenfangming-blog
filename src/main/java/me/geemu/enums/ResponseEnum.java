@@ -3,16 +3,12 @@ package me.geemu.enums;
 import lombok.Getter;
 
 /**
- * @Author: Geemu
+ * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 13:51
  * Description:
  */
 public enum ResponseEnum {
-    /**
-     * 服务器内部错误
-     */
-    DEFAULT_INTERNAL_SERVER_ERROR(500, "服务器内部错误"),
 
     /**
      * 无效的token
