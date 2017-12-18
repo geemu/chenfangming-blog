@@ -18,9 +18,4 @@ public class ErrorResponse {
         this.code = code;
         this.message = message;
     }
-
-    public ErrorResponse(ResponseEnum responseEnum) {
-        this.code = responseEnum.getCode();
-        this.message = responseEnum.getMessage();
-    }
 }

@@ -58,6 +58,6 @@ public class ExceptionInterceptor {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Object handleAllException(Exception e) {
         logger.error("[后台未知异常，请联系开发小哥]", e);
-        return new ErrorResponse(ResponseEnum.DEFAULT_INTERNAL_SERVER_ERROR);
+        return new ErrorResponse(ResponseEnum.DEFAULT_INTERNAL_SERVER_ERROR.getCode(), ResponseEnum.DEFAULT_INTERNAL_SERVER_ERROR.getMessage());
     }
 }
