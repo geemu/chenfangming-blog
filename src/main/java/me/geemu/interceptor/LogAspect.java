@@ -2,6 +2,7 @@ package me.geemu.interceptor;
 
 import com.alibaba.fastjson.JSON;
 
+import me.geemu.domain.ErrorResponse;
 import me.geemu.exception.BusinessException;
 import me.geemu.exception.NotFoundException;
 import me.geemu.exception.UnAuthorizedException;
@@ -10,6 +11,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -51,11 +53,21 @@ public class LogAspect {
         String targetMethod = point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         Object[] requestParams = point.getArgs();
-        Object response = new Object();
         StringBuilder logSb = new StringBuilder("\r\n");
         logSb.append(String.format("[RequestURL]\t%s\r\n", attributes.getRequest().getRequestURL()));
         logSb.append(String.format("[RequestParams]\t%s\r\n", JSON.toJSONString(requestParams)));
         logSb.append(String.format("[TargetMethod]\t%s\r\n", targetMethod));
+        ErrorResponse response = new ErrorResponse();
+        response.setMessage(e.getMessage());
+        if (e instanceof UnAuthorizedException) {
+            response.setCode(HttpStatus.UNAUTHORIZED.value());
+        } else if (e instanceof NotFoundException) {
+            response.setCode(HttpStatus.NOT_FOUND.value());
+        } else if (e instanceof BusinessException) {
+            response.setCode(HttpStatus.BAD_REQUEST.value());
+        } else {
+            response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        }
         logSb.append(String.format("[ResponseBody]\t%s\r\n", JSON.toJSONString(response)));
         if (e instanceof UnAuthorizedException || e instanceof BusinessException || e instanceof NotFoundException) {
             logger.warn(logSb.toString(), e);
