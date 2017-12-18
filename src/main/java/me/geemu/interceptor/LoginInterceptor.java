@@ -3,7 +3,7 @@ package me.geemu.interceptor;
 import io.jsonwebtoken.Claims;
 import me.geemu.config.JwtConfig;
 import me.geemu.enums.ResponseEnum;
-import me.geemu.exception.ForbiddenException;
+import me.geemu.exception.BusinessException;
 import me.geemu.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,7 +31,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         try {
             claims = JwtUtil.parseJWT(authorization, jwtConfig.getBase64Secret());
         } catch (Exception e) {
-            throw new ForbiddenException(ResponseEnum.INVALID_TOKEN_ERROR);
+            throw new BusinessException(ResponseEnum.INVALID_TOKEN_ERROR);
         }
         if (claims != null) {
             // token校验通过

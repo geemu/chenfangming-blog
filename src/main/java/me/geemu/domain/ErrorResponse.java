@@ -23,7 +23,4 @@ public class ErrorResponse {
         this.code = responseEnum.getCode();
         this.message = responseEnum.getMessage();
     }
-
-    public ErrorResponse() {
-    }
 }

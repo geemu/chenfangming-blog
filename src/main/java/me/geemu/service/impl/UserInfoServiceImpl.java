@@ -2,7 +2,8 @@ package me.geemu.service.impl;
 
 import me.geemu.config.JwtConfig;
 import me.geemu.enums.ResponseEnum;
-import me.geemu.exception.ForbiddenException;
+import me.geemu.exception.BusinessException;
+import me.geemu.exception.NotFoundException;
 import me.geemu.exception.UnAuthorizedException;
 import me.geemu.persistence.dao.IUserInfoDao;
 import me.geemu.persistence.model.UserInfo;
@@ -55,7 +56,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public String findByAccoundAndPassword(String account, String password) {
         UserInfo currentUser = userInfoDao.findByAccoundAndPassword(account, password);
         if (currentUser == null) {
-            throw new UnAuthorizedException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
+            throw new NotFoundException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
         }
         String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getAccount(), currentUser.getPassword()), jwtConfig);
         // 将token写入redis
@@ -78,7 +79,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
             throw new UnAuthorizedException("未找到用户");
         }
         if (newPassword.equalsIgnoreCase(oldUser.getPassword())) {
-            throw new ForbiddenException("新密码与旧密码不能相同");
+            throw new BusinessException("新密码与旧密码不能相同");
         }
         return userInfoDao.updatePasswprd(newPassword, userId) > 0;
     }

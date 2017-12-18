@@ -9,10 +9,10 @@ import java.io.Serializable;
  * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 13:42
- * Description: FORBIDDEN
+ * Description: Business 业务异常
  */
 @Data
-public class ForbiddenException extends RuntimeException implements Serializable {
+public class BusinessException extends RuntimeException implements Serializable {
 
     private static final long serialVersionUID = -3383376962482867983L;
 
@@ -20,19 +20,19 @@ public class ForbiddenException extends RuntimeException implements Serializable
 
     private String message;
 
-    public ForbiddenException(ResponseEnum responseEnum) {
+    public BusinessException(ResponseEnum responseEnum) {
         this.code = responseEnum.getCode();
         this.message = responseEnum.getMessage();
     }
 
-    public ForbiddenException(String message) {
-        this.code = ResponseEnum.FORBIDDEN_ERROR_DEFAULT.getCode();
+    public BusinessException(String message) {
+        this.code = ResponseEnum.DEFAULT_BUSINESS_ERROR.getCode();
         this.message = message;
     }
 
-    public ForbiddenException(Integer code, String message) {
-        this.code = code;
-        this.message = message;
+    public BusinessException() {
+        this.code = ResponseEnum.DEFAULT_BUSINESS_ERROR.getCode();
+        this.message = ResponseEnum.DEFAULT_BUSINESS_ERROR.getMessage();
     }
 
 }

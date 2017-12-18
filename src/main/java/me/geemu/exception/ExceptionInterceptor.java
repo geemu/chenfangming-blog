@@ -31,16 +31,6 @@ public class ExceptionInterceptor {
 
 
     /**
-     * @param fb 禁止 Forbidden 权限不够，参数校验失败等 状态码改为403
-     * @return 返回包装后的异常信息
-     */
-    @ExceptionHandler(ForbiddenException.class)
-    @ResponseStatus(value = HttpStatus.FORBIDDEN)
-    public Object handleForbiddenException(ForbiddenException fb) {
-        return new ErrorResponse(fb.getCode(), fb.getMessage());
-    }
-
-    /**
      * @param ne 资源未找到 状态码改为404
      * @return 返回包装后的异常信息
      */
@@ -50,6 +40,15 @@ public class ExceptionInterceptor {
         return new ErrorResponse(ne.getCode(), ne.getMessage());
     }
 
+    /**
+     * @param be 业务异常 参数校验不通过等
+     * @return 返回包装后的异常信息
+     */
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(value = HttpStatus.FORBIDDEN)
+    public Object handleForbiddenException(BusinessException be) {
+        return new ErrorResponse(be.getCode(), be.getMessage());
+    }
 
     /**
      * @param e 未知异常 状态码改为500
@@ -59,6 +58,6 @@ public class ExceptionInterceptor {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Object handleAllException(Exception e) {
         logger.error("[后台未知异常，请联系开发小哥]", e);
-        return new ErrorResponse(ResponseEnum.INTERNAL_SERVER_ERROR);
+        return new ErrorResponse(ResponseEnum.DEFAULT_INTERNAL_SERVER_ERROR);
     }
 }

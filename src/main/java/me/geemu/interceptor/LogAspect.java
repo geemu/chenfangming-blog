@@ -2,7 +2,7 @@ package me.geemu.interceptor;
 
 import com.alibaba.fastjson.JSON;
 
-import me.geemu.exception.ForbiddenException;
+import me.geemu.exception.BusinessException;
 import me.geemu.exception.NotFoundException;
 import me.geemu.exception.UnAuthorizedException;
 import org.aspectj.lang.JoinPoint;
@@ -57,7 +57,7 @@ public class LogAspect {
         logSb.append(String.format("[RequestParams]\t%s\r\n", JSON.toJSONString(requestParams)));
         logSb.append(String.format("[TargetMethod]\t%s\r\n", targetMethod));
         logSb.append(String.format("[ResponseBody]\t%s\r\n", JSON.toJSONString(response)));
-        if (e instanceof UnAuthorizedException || e instanceof ForbiddenException || e instanceof NotFoundException) {
+        if (e instanceof UnAuthorizedException || e instanceof BusinessException || e instanceof NotFoundException) {
             logger.info(logSb.toString(), e);
         } else {
             logger.error(logSb.toString(), e);

@@ -1,22 +1,15 @@
 package me.geemu.controller;
 
-import io.jsonwebtoken.Claims;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import me.geemu.domain.request.ChangePasswordRequest;
 import me.geemu.domain.response.LoginResponse;
-import me.geemu.enums.ResponseEnum;
-import me.geemu.exception.ForbiddenException;
 import me.geemu.service.IUserInfoService;
 import me.geemu.util.RequestUtil;
-import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 /**
  * @Author: Geemu
