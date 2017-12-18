@@ -26,6 +26,9 @@ public class ExceptionInterceptor {
     @ExceptionHandler(UnAuthorizedException.class)
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
     public Object handleCustomException(UnAuthorizedException ue) {
+        if (ue.getCode() == null) {
+            ue.setCode(HttpStatus.UNAUTHORIZED.value());
+        }
         return new ErrorResponse(ue.getCode(), ue.getMessage());
     }
 
@@ -37,16 +40,22 @@ public class ExceptionInterceptor {
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public Object handleCustomException(NotFoundException ne) {
+        if (ne.getCode() == null) {
+            ne.setCode(HttpStatus.NOT_FOUND.value());
+        }
         return new ErrorResponse(ne.getCode(), ne.getMessage());
     }
 
     /**
-     * @param be 业务异常 参数校验不通过等
+     * @param be 业务异常 参数校验不通过等 400
      * @return 返回包装后的异常信息
      */
     @ExceptionHandler(BusinessException.class)
-    @ResponseStatus(value = HttpStatus.FORBIDDEN)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public Object handleForbiddenException(BusinessException be) {
+        if (be.getCode() == null) {
+            be.setCode(HttpStatus.BAD_REQUEST.value());
+        }
         return new ErrorResponse(be.getCode(), be.getMessage());
     }
 
@@ -58,6 +67,6 @@ public class ExceptionInterceptor {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Object handleAllException(Exception e) {
         logger.error("[后台未知异常，请联系开发小哥]", e);
-        return new ErrorResponse(ResponseEnum.DEFAULT_INTERNAL_SERVER_ERROR.getCode(), ResponseEnum.DEFAULT_INTERNAL_SERVER_ERROR.getMessage());
+        return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
     }
 }

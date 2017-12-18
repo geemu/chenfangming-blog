@@ -56,7 +56,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public String findByAccoundAndPassword(String account, String password) {
         UserInfo currentUser = userInfoDao.findByAccoundAndPassword(account, password);
         if (currentUser == null) {
-            throw new NotFoundException(ResponseEnum.ACCOUNT_OR_PASSWORD_FAIL);
+            throw new NotFoundException("未找到");
         }
         String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getAccount(), currentUser.getPassword()), jwtConfig);
         // 将token写入redis

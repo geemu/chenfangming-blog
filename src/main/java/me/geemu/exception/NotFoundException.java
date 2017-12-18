@@ -25,12 +25,7 @@ public class NotFoundException extends RuntimeException implements Serializable 
     }
 
     public NotFoundException(String message) {
-        this.code = ResponseEnum.DEFAULT_NOT_FOUND_ERROR.getCode();
         this.message = message;
     }
 
-    public NotFoundException(Integer code, String message) {
-        this.code = code;
-        this.message = message;
-    }
 }

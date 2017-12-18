@@ -25,12 +25,6 @@ public class UnAuthorizedException extends RuntimeException implements Serializa
     }
 
     public UnAuthorizedException(String message) {
-        this.code = ResponseEnum.DEFAULT_UNAUTHORIZED_ERROR.getCode();
-        this.message = message;
-    }
-
-    public UnAuthorizedException(Integer code, String message) {
-        this.code = code;
         this.message = message;
     }
 }

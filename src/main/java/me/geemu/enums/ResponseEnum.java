@@ -10,21 +10,6 @@ import lombok.Getter;
  */
 public enum ResponseEnum {
     /**
-     * Business默认值
-     */
-    DEFAULT_BUSINESS_ERROR(-10000, "发生了自定义异常"),
-
-    /**
-     * 资源不存在 默认
-     */
-    DEFAULT_NOT_FOUND_ERROR(-10001, "资源不存在"),
-
-    /**
-     * 未授权 默认
-     */
-    DEFAULT_UNAUTHORIZED_ERROR(-10002, "未授权"),
-
-    /**
      * 服务器内部错误
      */
     DEFAULT_INTERNAL_SERVER_ERROR(500, "服务器内部错误"),

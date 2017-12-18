@@ -26,7 +26,6 @@ public class BusinessException extends RuntimeException implements Serializable 
     }
 
     public BusinessException(String message) {
-        this.code = ResponseEnum.DEFAULT_BUSINESS_ERROR.getCode();
         this.message = message;
     }
 
