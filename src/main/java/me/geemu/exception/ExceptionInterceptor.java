@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * @Author: Geemu
+ * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 10:38
  * Description: 全局异常拦截器
@@ -20,69 +20,45 @@ public class ExceptionInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(ExceptionInterceptor.class);
 
     /**
-     * 未授权 要求验证 登陆失败
-     * 状态码改为401
-     *
-     * @param ue
-     * @return
+     * @param ue 未授权 要求验证 登陆失败 状态码改为401
+     * @return 返回包装后的异常信息
      */
     @ExceptionHandler(UnAuthorizedException.class)
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
     public Object handleCustomException(UnAuthorizedException ue) {
-        ErrorResponse response = new ErrorResponse();
-        response.setCode(ue.getCode());
-        response.setMessage(ue.getMessage());
-        return response;
+        return new ErrorResponse(ue.getCode(), ue.getMessage());
     }
 
 
     /**
-     * 禁止 Forbidden 权限不够，参数校验失败等
-     * 状态码改为403
-     *
-     * @param fb
-     * @return
+     * @param fb 禁止 Forbidden 权限不够，参数校验失败等 状态码改为403
+     * @return 返回包装后的异常信息
      */
     @ExceptionHandler(ForbiddenException.class)
     @ResponseStatus(value = HttpStatus.FORBIDDEN)
     public Object handleForbiddenException(ForbiddenException fb) {
-        ErrorResponse response = new ErrorResponse();
-        response.setCode(fb.getCode());
-        response.setMessage(fb.getMessage());
-        return response;
+        return new ErrorResponse(fb.getCode(), fb.getMessage());
     }
 
     /**
-     * 资源未找到
-     * 状态码改为404
-     *
-     * @param ne
-     * @return
+     * @param ne 资源未找到 状态码改为404
+     * @return 返回包装后的异常信息
      */
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public Object handleCustomException(NotFoundException ne) {
-        ErrorResponse response = new ErrorResponse();
-        response.setCode(ne.getCode());
-        response.setMessage(ne.getMessage());
-        return response;
+        return new ErrorResponse(ne.getCode(), ne.getMessage());
     }
 
 
     /**
-     * 未知异常
-     * 状态码改为500
-     *
-     * @param e
-     * @return
+     * @param e 未知异常 状态码改为500
+     * @return 返回包装后的异常信息
      */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Object handleAllException(Exception e) {
         logger.error("[后台未知异常，请联系开发小哥]", e);
-        ErrorResponse response = new ErrorResponse();
-        response.setCode(ResponseEnum.INTERNAL_SERVER_ERROR.getCode());
-        response.setMessage(ResponseEnum.INTERNAL_SERVER_ERROR.getMessage());
-        return response;
+        return new ErrorResponse(ResponseEnum.INTERNAL_SERVER_ERROR);
     }
 }
