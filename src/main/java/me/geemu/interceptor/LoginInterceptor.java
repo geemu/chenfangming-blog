@@ -38,7 +38,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             request.setAttribute("userId", claims.get("userId"));
             return true;
         }
-        // 伪造的Authorization 或者没有登陆
+        // 伪造的Authorization 或者没有登陆 或者过期
         return false;
     }
 }
