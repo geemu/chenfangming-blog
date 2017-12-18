@@ -6,7 +6,7 @@ import me.geemu.enums.ResponseEnum;
 import java.io.Serializable;
 
 /**
- * @Author: Geemu
+ * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 13:42
  * Description: FORBIDDEN
