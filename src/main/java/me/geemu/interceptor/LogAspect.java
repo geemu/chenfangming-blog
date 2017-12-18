@@ -72,6 +72,7 @@ public class LogAspect {
         } else {
             attributes.getResponse().setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            response.setMessage(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
         }
         logSb.append(String.format("[ResponseCode]\t%s\r\n", attributes.getResponse().getStatus()));
         logSb.append(String.format("[ResponseBody]\t%s\r\n", JSON.toJSONString(response)));

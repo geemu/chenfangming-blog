@@ -1,9 +1,6 @@
 package me.geemu.exception;
 
 import me.geemu.domain.ErrorResponse;
-import me.geemu.enums.ResponseEnum;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 public class ExceptionInterceptor {
-    private static final Logger logger = LoggerFactory.getLogger(ExceptionInterceptor.class);
 
     /**
      * @param ue 未授权 要求验证 登陆失败 状态码改为401
@@ -66,7 +62,6 @@ public class ExceptionInterceptor {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Object handleAllException(Exception e) {
-        logger.error("[后台未知异常，请联系开发小哥]", e);
         return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
     }
 }
