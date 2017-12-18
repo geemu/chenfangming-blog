@@ -1,7 +1,6 @@
 package me.geemu.service.impl;
 
 import me.geemu.config.JwtConfig;
-import me.geemu.enums.ResponseEnum;
 import me.geemu.exception.BusinessException;
 import me.geemu.exception.NotFoundException;
 import me.geemu.exception.UnAuthorizedException;
@@ -33,9 +32,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     private RedisUtil redisUtil;
 
     /**
-     * 根据id查找用户
-     *
-     * @param id
+     * @param id 根据id查找用户
      * @return
      */
     @Override
@@ -46,10 +43,8 @@ public class UserInfoServiceImpl implements IUserInfoService {
     }
 
     /**
-     * 根据账号密码查找用户
-     *
-     * @param account
-     * @param password
+     * @param account  根据账号密码查找用户 账号
+     * @param password 密码
      * @return
      */
     @Override
