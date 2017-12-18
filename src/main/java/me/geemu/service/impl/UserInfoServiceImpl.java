@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @Author: Geemu
+ * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 12:30
  * Description:
