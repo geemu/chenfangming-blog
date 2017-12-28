@@ -7,7 +7,9 @@
     <artifactId>microshopping</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
-
+    <description>微商城</description>
+    
+    <name>microshopping</name>
     <packaging>pom</packaging>
 
     <repositories>
