@@ -27,6 +27,9 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
         <spring-boot-dependencies.version>1.5.9.RELEASE</spring-boot-dependencies.version>
+        <druid.version>1.1.6</druid.version>
+        <swagger.ui.version>2.7.0</swagger.ui.version>
+        <swagge2.version>2.7.0</swagge2.version>
     </properties>
 
     <!-- 依赖管理 -->
