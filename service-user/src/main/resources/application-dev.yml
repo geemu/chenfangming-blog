@@ -1,0 +1,29 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # 设置服务注册中心地址
+
+server:
+  port: 8762   # 服务端口 再加一个8763集群
+
+spring:
+  datasource:
+    name: mysql-primary
+    url: jdbc:mysql://localhost:3306/microshopping?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: root
+    password: chen1436863821
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+
+
+

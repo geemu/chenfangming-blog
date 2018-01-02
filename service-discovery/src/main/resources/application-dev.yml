@@ -3,13 +3,9 @@ server:
   tomcat:
     uri-encoding: UTF-8
 
-spring:
-  application:
-    name: discovery
-
 eureka:
   instance:
-    hostname: discovery # 设置实例主机名
+    hostname: service-discovery # 设置实例主机名
     lease-expiration-duration-in-seconds: 30    # 租期到期时间（默认90秒）
     lease-renewal-interval-in-seconds: 10        # 租期更新时间间隔（默认30秒）
   client:

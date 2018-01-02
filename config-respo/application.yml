@@ -1,0 +1,34 @@
+debug: true
+endpoints:
+    shutdown:
+        enabled: true
+info:
+    id: ${spring.application.name}
+logging:
+    level:
+        com:
+            netflix:
+                discovery: 'OFF'
+                eureka: 'OFF'
+        org:
+            springframework:
+                security: DEBUG
+    pattern:
+        console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:-
+            }){magenta} %clr(---){faint} %clr([trace=%X{X-Trace-Id:-},span=%X{X-Span-Id:-}]){yellow}
+            %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex'
+server:
+    port: ${PORT:${SERVER_PORT:0}}
+spring:
+    jpa:
+        generate-ddl: true
+    rabbitmq:
+        host: ${DOCKER_IP}
+    redis:
+        host: ${DOCKER_IP}
+    sleuth:
+        log:
+            json:
+                enabled: true
+    zipkin:
+        host: ${DOCKER_IP}
