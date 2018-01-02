@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 13:42
- * Description: Business 业务异常
+ * Description: Business 业务异常 通用异常
  */
 @Data
 public class BusinessException extends RuntimeException implements Serializable {

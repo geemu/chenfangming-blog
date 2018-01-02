@@ -6,7 +6,7 @@ import lombok.Getter;
  * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 13:51
- * Description:
+ * Description: 枚举值
  */
 public enum ResponseEnum {
 

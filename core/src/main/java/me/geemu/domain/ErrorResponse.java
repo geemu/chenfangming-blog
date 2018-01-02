@@ -1,7 +1,6 @@
 package me.geemu.domain;
 
 import lombok.Data;
-import me.geemu.enums.ResponseEnum;
 
 /**
  * @author Geemu

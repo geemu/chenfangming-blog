@@ -19,11 +19,12 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
  * @Author: Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 10:38
- * Description: Spring cache
+ * Description: 使用Redis作为缓存库
  */
 @Configuration
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
+
 
     @Override
     @Bean
@@ -39,13 +40,15 @@ public class RedisConfig extends CachingConfigurerSupport {
         };
     }
 
-
+    /**
+     * 缓存管理器
+     *
+     * @param redisTemplate
+     * @return
+     */
     @Bean
     public CacheManager cacheManager(RedisTemplate redisTemplate) {
-        RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
-        // 设置缓存过期时间 秒
-        rcm.setDefaultExpiration(60);
-        return rcm;
+        return new RedisCacheManager(redisTemplate);
     }
 
     @Bean
