@@ -8,7 +8,7 @@ modelPackage: me.geemu.persistence.model.primary
 # 生成的mapper接口类所在包
 mapperPackage: me.geemu.persistence.dao.primary
 # 生成的mapper xml文件所在包，默认存储在resources目录下
-sqlMapperPackage: mapper.primarys
+sqlMapperPackage: mapper.primary
 
 
 
