@@ -1,9 +1,15 @@
 server:
   port: 8761  # 服务端口
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: discovery
 
 eureka:
   instance:
-    hostname: localhost # 设置实例主机名
+    hostname: discovery # 设置实例主机名
     lease-expiration-duration-in-seconds: 30    # 租期到期时间（默认90秒）
     lease-renewal-interval-in-seconds: 10        # 租期更新时间间隔（默认30秒）
   client:
@@ -14,4 +20,4 @@ eureka:
   server:
     enable-self-preservation: false      # 设为false，关闭自我保护
     eviction-interval-timer-in-ms: 5000  # 清理间隔（单位毫秒，默认是60*1000）
-    wait-time-in-ms-when-sync-empty: 0   # 设置同步为空时的等待时间。默认 5 * MINUTES
+    wait-time-in-ms-when-sync-empty: 1   # 设置同步为空时的等待时间。默认 5 * MINUTES

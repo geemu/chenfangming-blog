@@ -4,7 +4,7 @@
 
     <!-- 定义日志文件的存储地址和项目名称 -->
     <property name="LOG_PATH" value="${LOG_PATH:-log}"/>
-    <property name="PROJECT_NAME" value="service-eureka-discovery"/>
+    <property name="PROJECT_NAME" value="service-discovery"/>
 
     <!-- 彩色日志配置 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
