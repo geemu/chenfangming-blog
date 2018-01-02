@@ -26,10 +26,13 @@
 
 
     <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring.boot.version>${project.parent.version}</spring.boot.version>
+        <mybatis.generator.core.version>1.3.6</mybatis.generator.core.version>
+        
     </properties>
 
     <dependencies>
