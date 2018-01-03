@@ -1,12 +1,10 @@
 package me.geemu.service.impl;
 
 import me.geemu.config.JwtConfig;
-import me.geemu.exception.BusinessException;
 import me.geemu.exception.NotFoundException;
-import me.geemu.exception.UnAuthorizedException;
-import me.geemu.persistence.dao.primary.IUserInfoDao;
-import me.geemu.persistence.model.primary.UserInfo;
-import me.geemu.service.IUserInfoService;
+import me.geemu.persistence.dao.secondary.IUserInfoSecondaryDao;
+import me.geemu.persistence.model.secondary.UserInfoSecondary;
+import me.geemu.service.IUserServiceSecondary;
 import me.geemu.util.AccessToken;
 import me.geemu.util.JwtUtil;
 import me.geemu.util.RedisUtil;
@@ -15,15 +13,14 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Geemu
- * Email:cfmmail@sina.com
- * Date: 2017/12/5 12:30
- * Description:
+ * Email: cfmmail@sina.com
+ * Date: 2018/1/3  15:18
+ * Description: me.geemu.service.impl
  */
 @Service
-public class UserInfoServiceImpl implements IUserInfoService {
-
+public class IUserServiceSecondaryImpl implements IUserServiceSecondary {
     @Autowired
-    private IUserInfoDao userInfoDao;
+    private IUserInfoSecondaryDao userInfoSecondaryDao;
 
     @Autowired
     private JwtConfig jwtConfig;
@@ -32,13 +29,15 @@ public class UserInfoServiceImpl implements IUserInfoService {
     private RedisUtil redisUtil;
 
     /**
-     * @param account  根据账号密码查找用户 账号
+     * 根据账号密码查找用户 返回token
+     *
+     * @param account  账号
      * @param password 密码
      * @return token
      */
     @Override
     public String findByAccountAndPassword(String account, String password) {
-        UserInfo currentUser = userInfoDao.findByAccountAndPassword(account, password);
+        UserInfoSecondary currentUser = userInfoSecondaryDao.findByAccountAndPassword(account, password);
         if (currentUser == null) {
             throw new NotFoundException("未找到");
         }
@@ -47,5 +46,4 @@ public class UserInfoServiceImpl implements IUserInfoService {
         redisUtil.put("login_user:" + token, currentUser, jwtConfig.getExpiresSecond());
         return token;
     }
-
 }

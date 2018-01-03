@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import me.geemu.domain.request.ChangePasswordRequest;
 import me.geemu.domain.response.LoginResponse;
 import me.geemu.service.IUserInfoService;
+import me.geemu.service.IUserServiceSecondary;
 import me.geemu.util.RequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,35 +22,41 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 @Api(description = "用户相关")
 public class UserInfoController {
-
+    /**
+     * 主库
+     */
     @Autowired
     private IUserInfoService userInfoService;
+    /**
+     * 从库
+     */
+    @Autowired
+    private IUserServiceSecondary userServiceSecondary;
 
     /**
      * 根据用户名密码登陆
      *
-     * @param account
-     * @param password
-     * @return
+     * @param account  账号
+     * @param password 密码
+     * @return token
      */
-    @ApiOperation(value = "用户登陆", notes = "用户登陆", response = LoginResponse.class)
+    @ApiOperation(value = "主库用户登陆", notes = "主库用户登陆", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
         return new LoginResponse(userInfoService.findByAccountAndPassword(account, password));
     }
 
     /**
-     * 修改密码
+     * 根据用户名密码登陆
      *
-     * @param changePasswordRequest 修改密码
-     * @return 返回修改结果
+     * @param account  账号
+     * @param password 密码
+     * @return token
      */
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "String", paramType = "header")
-    })
-    @ApiOperation(value = "修改密码", notes = "修改密码", response = boolean.class)
-    @PutMapping("password")
-    public boolean updatePassword(@RequestBody ChangePasswordRequest changePasswordRequest, @RequestHeader("Authorization") String token) {
-        return userInfoService.updatePassword(changePasswordRequest.getOldPassword(), changePasswordRequest.getNewPassword(), RequestUtil.getUserId(), token);
+    @ApiOperation(value = "从库用户登陆", notes = "从库用户登陆", response = LoginResponse.class)
+    @PostMapping("login_secondary")
+    public LoginResponse loginSecondary(@RequestParam("account") String account, @RequestParam("password") String password) {
+        return new LoginResponse(userServiceSecondary.findByAccountAndPassword(account, password));
     }
+
 }

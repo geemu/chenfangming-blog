@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author: Geemu
- * Email:cfmmail@sina.com
+ * @author Geemu
+ * Email: cfmmail@sina.com
  * Date: 2017/12/5 10:38
  * Description:
  */

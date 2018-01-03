@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
- * @Author: Geemu
- * Email:cfmmail@sina.com
- * Date: 2017/12/5 13:42
+ * @author Geemu
+ * Email: cfmmail@sina.com
+ * Date: 2017/12/5 10:38
  * Description:
  */
 @Configuration

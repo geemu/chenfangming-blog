@@ -11,8 +11,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @Author: Geemu
- * Email:cfmmail@sina.com
+ * @author Geemu
+ * Email: cfmmail@sina.com
  * Date: 2017/12/5 10:38
  * Description:
  */

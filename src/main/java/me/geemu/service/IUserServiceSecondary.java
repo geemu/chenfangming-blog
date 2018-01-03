@@ -1,22 +1,18 @@
 package me.geemu.service;
 
-import me.geemu.persistence.model.primary.UserInfo;
-
 /**
  * @author Geemu
  * Email: cfmmail@sina.com
- * Date: 2017/12/5 12:29
- * Description:
+ * Date: 2018/1/3  15:18
+ * Description: me.geemu.service
  */
-public interface IUserInfoService {
-
+public interface IUserServiceSecondary {
     /**
      * 根据账号密码查找用户 返回token
      *
-     * @param account
-     * @param password
-     * @return
+     * @param account  账号
+     * @param password 密码
+     * @return token
      */
     String findByAccountAndPassword(String account, String password);
-    
 }

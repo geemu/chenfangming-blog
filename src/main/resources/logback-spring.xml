@@ -3,7 +3,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <!-- 定义日志文件的存储地址和项目名称 -->
-    <property name="LOG_PATH" value="${LOG_PATH:-/temp}"/>
+    <property name="LOG_PATH" value="${LOG_PATH:-log}"/>
     <property name="PROJECT_NAME" value="microshopping"/>
 
     <!-- 彩色日志配置 -->

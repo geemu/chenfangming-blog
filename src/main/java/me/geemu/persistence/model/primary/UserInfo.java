@@ -1,4 +1,4 @@
-package me.geemu.persistence.model;
+package me.geemu.persistence.model.primary;
 
 import lombok.Data;
 
