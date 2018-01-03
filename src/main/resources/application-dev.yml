@@ -70,7 +70,3 @@ audience:
 #设置cookie
 cookie:
     domain: api.geemu.me
-
-security:
-  basic:
-    enabled: false
