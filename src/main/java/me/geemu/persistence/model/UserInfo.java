@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @Author: Geemu
+ * @author Geemu
  * Email:cfmmail@sina.com
  * Date: 2017/12/5 12:21
  * Description:

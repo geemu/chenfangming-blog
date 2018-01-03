@@ -41,8 +41,8 @@ public class UserInfoController {
     /**
      * 修改密码
      *
-     * @param changePasswordRequest
-     * @return
+     * @param changePasswordRequest 修改密码
+     * @return 返回修改结果
      */
     @ApiImplicitParams({
             @ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "String", paramType = "header")
@@ -50,6 +50,6 @@ public class UserInfoController {
     @ApiOperation(value = "修改密码", notes = "修改密码", response = boolean.class)
     @PutMapping("password")
     public boolean updatePassword(@RequestBody ChangePasswordRequest changePasswordRequest, @RequestHeader("Authorization") String token) {
-        return userInfoService.updatePassword(changePasswordRequest.getldPassword(), changePasswordRequest.getNewPassword(), RequestUtil.getUserId(), token);
+        return userInfoService.updatePassword(changePasswordRequest.getOldPassword(), changePasswordRequest.getNewPassword(), RequestUtil.getUserId(), token);
     }
 }

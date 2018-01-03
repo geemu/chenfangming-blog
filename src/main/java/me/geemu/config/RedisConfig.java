@@ -16,8 +16,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 /**
- * @Author: Geemu
- * Email:cfmmail@sina.com
+ * @author Geemu
+ * Email: cfmmail@sina.com
  * Date: 2017/12/5 10:38
  * Description: Spring cache
  */
@@ -39,7 +39,12 @@ public class RedisConfig extends CachingConfigurerSupport {
         };
     }
 
-
+    /**
+     * 缓存管理器
+     *
+     * @param redisTemplate 缓存管理器
+     * @return 缓存管理器
+     */
     @Bean
     public CacheManager cacheManager(RedisTemplate redisTemplate) {
         RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
