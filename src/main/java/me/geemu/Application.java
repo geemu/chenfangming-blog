@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Author: Geemu
- * Email:cfmmail@sina.com
+ * @author Geemu
+ * Email: cfmmail@sina.com
  * Date: 2017/12/5 10:38
  * Description:
  */

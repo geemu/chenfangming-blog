@@ -24,7 +24,7 @@ public interface IUserInfoService {
      * @param password
      * @return
      */
-    String findByAccoundAndPassword(String account, String password);
+    String findByAccountAndPassword(String account, String password);
 
     /**
      * 修改密码

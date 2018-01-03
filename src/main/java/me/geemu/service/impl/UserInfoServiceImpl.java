@@ -48,7 +48,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
      * @return
      */
     @Override
-    public String findByAccoundAndPassword(String account, String password) {
+    public String findByAccountAndPassword(String account, String password) {
         UserInfo currentUser = userInfoDao.findByAccoundAndPassword(account, password);
         if (currentUser == null) {
             throw new NotFoundException("未找到");

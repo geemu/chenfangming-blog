@@ -4,8 +4,8 @@ import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
 /**
- * @Author: Geemu
- * Email:cfmmail@sina.com
+ * @author Geemu
+ * Email: cfmmail@sina.com
  * Date: 2017/12/12  17:37
  * Description: user
  */

@@ -35,7 +35,7 @@ public class UserInfoController {
     @ApiOperation(value = "用户登陆", notes = "用户登陆", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
-        return new LoginResponse(userInfoService.findByAccoundAndPassword(account, password));
+        return new LoginResponse(userInfoService.findByAccountAndPassword(account, password));
     }
 
     /**
@@ -50,6 +50,6 @@ public class UserInfoController {
     @ApiOperation(value = "修改密码", notes = "修改密码", response = boolean.class)
     @PutMapping("password")
     public boolean updatePassword(@RequestBody ChangePasswordRequest changePasswordRequest, @RequestHeader("Authorization") String token) {
-        return userInfoService.updatePassword(changePasswordRequest.getOldPassword(), changePasswordRequest.getNewPassword(), RequestUtil.getUserId(), token);
+        return userInfoService.updatePassword(changePasswordRequest.getldPassword(), changePasswordRequest.getNewPassword(), RequestUtil.getUserId(), token);
     }
 }
