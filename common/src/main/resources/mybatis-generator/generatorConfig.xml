@@ -47,13 +47,10 @@
 
 
         <!-- appointment表 -->
-        <table tableName="user_info" domainObjectName="UserInfo"
-               enableSelectByExample="false"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false" mapperName="UserInfoDao">
-            <property name="useActualColumnNames" value="false"/>
-            <!--<property name="modelOnly" value="true"/>-->
+        <table tableName="user_info" domainObjectName="UserInfo" enableSelectByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               mapperName="UserInfoDao">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
         </table>
 
