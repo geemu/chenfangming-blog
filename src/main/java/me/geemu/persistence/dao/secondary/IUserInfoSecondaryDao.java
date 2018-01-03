@@ -19,7 +19,7 @@ public interface IUserInfoSecondaryDao {
      * @param password 密码
      * @return 用户
      */
-    @Select("select * from user_info_secondary where account = #{account} and password = #{password}")
+    @Select("select * from user_info where account = #{account} and password = #{password}")
     UserInfoSecondary findByAccountAndPassword(@Param("account") String account, @Param("password") String password);
 
 }

@@ -1,9 +1,8 @@
 /*
-SQLyog  v12.2.6 (64 bit)
-MySQL - 5.5.56 : Database - microshopping
+SQLyog Trial v12.5.0 (64 bit)
+MySQL - 5.7.20 : Database - secondaryDataBase
 *********************************************************************
 */
-
 
 /*!40101 SET NAMES utf8 */;
 
@@ -13,9 +12,9 @@ MySQL - 5.5.56 : Database - microshopping
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`microshopping` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`secondaryDataBase` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `microshopping`;
+USE `secondaryDataBase`;
 
 /*Table structure for table `user_info` */
 
@@ -37,9 +36,8 @@ CREATE TABLE `user_info` (
 
 /*Data for the table `user_info` */
 
-insert  into `user_info`(`id`,`account`,`password`,`email`,`dataFlag`,`isDelete`,`createTime`,`updateTime`,`createId`,`updateId`) values
-
-(1,'18016333986','chen1436863821','cfmmail@sina.com','','\0','2017-12-05 10:36:57','2017-12-05 10:37:01',1,1);
+insert  into `user_info`(`id`,`account`,`password`,`email`,`dataFlag`,`isDelete`,`createTime`,`updateTime`,`createId`,`updateId`) values 
+(1,'18852950875','chen1436863821','cfmmail@sina.com','','\0','2017-12-05 10:36:57','2017-12-05 10:37:01',1,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
