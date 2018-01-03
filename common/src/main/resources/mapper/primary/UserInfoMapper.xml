@@ -11,6 +11,7 @@
     <result column="nickName" jdbcType="VARCHAR" property="nickName" />
     <result column="phoneNumber" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="age" jdbcType="TINYINT" property="age" />
     <result column="sex" jdbcType="TINYINT" property="sex" />
     <result column="dataFlag" jdbcType="BIT" property="dataFlag" />
     <result column="isDelete" jdbcType="BIT" property="isDelete" />
@@ -23,7 +24,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    id, account, "password", nickName, phoneNumber, email, sex, dataFlag, isDelete, createTime, 
-    updateTime, createId, updateId
+    id, account, "password", nickName, phoneNumber, email, age, sex, dataFlag, isDelete, 
+    createTime, updateTime, createId, updateId
   </sql>
 </mapper>
