@@ -3,6 +3,12 @@ package me.geemu.persistence.model.primary;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * @author Geemu
+ * Email: cfmmail@sina.com
+ * Date: 2017/12/5 10:38
+ * Description: 用户
+ */
 @Table(name = "user_info")
 public class UserInfo {
     @Id
