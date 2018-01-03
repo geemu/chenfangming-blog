@@ -1,4 +1,4 @@
-package me.geemu.config.dataSourceConfig;
+package me.geemu.config.datasourceconfig;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
