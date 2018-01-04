@@ -69,10 +69,10 @@ public class SecondaryDataSourceConfig {
      * @return 自动扫描
      */
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("secondarySqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("me.geemu.persistence.dao.secondary");
-        return mapperScannerConfigurer;
+    public MapperScannerConfigurer mapperScannerConfig() {
+        MapperScannerConfigurer mapperScannerConfig = new MapperScannerConfigurer();
+        mapperScannerConfig.setSqlSessionFactoryBeanName("secondarySqlSessionFactory");
+        mapperScannerConfig.setBasePackage("me.geemu.persistence.dao.secondary");
+        return mapperScannerConfig;
     }
 }

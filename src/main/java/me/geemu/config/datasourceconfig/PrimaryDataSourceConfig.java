@@ -73,11 +73,11 @@ public class PrimaryDataSourceConfig {
      * @return 自动扫描
      */
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("primarySqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("me.geemu.persistence.dao.primary");
-        return mapperScannerConfigurer;
+    public MapperScannerConfigurer mapperScannerConfig() {
+        MapperScannerConfigurer mapperScannerConfig = new MapperScannerConfigurer();
+        mapperScannerConfig.setSqlSessionFactoryBeanName("primarySqlSessionFactory");
+        mapperScannerConfig.setBasePackage("me.geemu.persistence.dao.primary");
+        return mapperScannerConfig;
     }
 
 }
