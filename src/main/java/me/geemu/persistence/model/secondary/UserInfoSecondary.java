@@ -26,32 +26,38 @@ public class UserInfoSecondary {
     /**
      * 0无效 1有效 是否有效
      */
-    private Boolean dataFlag;
+    @Column(name = "dataFlag")
+    private Boolean dataflag;
 
     /**
      * 0未删除 1删除 是否删除
      */
-    private Boolean isDelete;
+    @Column(name = "isDelete")
+    private Boolean isdelete;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @Column(name = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @Column(name = "updateTime")
+    private Date updatetime;
 
     /**
      * 创建人id
      */
-    private Long createId;
+    @Column(name = "createId")
+    private Long createid;
 
     /**
      * 更新人id
      */
-    private Long updateId;
+    @Column(name = "updateId")
+    private Long updateid;
 
     /**
      * @return id
@@ -126,17 +132,17 @@ public class UserInfoSecondary {
      *
      * @return dataFlag - 0无效 1有效 是否有效
      */
-    public Boolean getDataFlag() {
-        return dataFlag;
+    public Boolean getDataflag() {
+        return dataflag;
     }
 
     /**
      * 设置0无效 1有效 是否有效
      *
-     * @param dataFlag 0无效 1有效 是否有效
+     * @param dataflag 0无效 1有效 是否有效
      */
-    public void setDataFlag(Boolean dataFlag) {
-        this.dataFlag = dataFlag;
+    public void setDataflag(Boolean dataflag) {
+        this.dataflag = dataflag;
     }
 
     /**
@@ -144,17 +150,17 @@ public class UserInfoSecondary {
      *
      * @return isDelete - 0未删除 1删除 是否删除
      */
-    public Boolean getIsDelete() {
-        return isDelete;
+    public Boolean getIsdelete() {
+        return isdelete;
     }
 
     /**
      * 设置0未删除 1删除 是否删除
      *
-     * @param isDelete 0未删除 1删除 是否删除
+     * @param isdelete 0未删除 1删除 是否删除
      */
-    public void setIsDelete(Boolean isDelete) {
-        this.isDelete = isDelete;
+    public void setIsdelete(Boolean isdelete) {
+        this.isdelete = isdelete;
     }
 
     /**
@@ -162,17 +168,17 @@ public class UserInfoSecondary {
      *
      * @return createTime - 创建时间
      */
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createTime 创建时间
+     * @param createtime 创建时间
      */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
     /**
@@ -180,17 +186,17 @@ public class UserInfoSecondary {
      *
      * @return updateTime - 更新时间
      */
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param updateTime 更新时间
+     * @param updatetime 更新时间
      */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
     /**
@@ -198,17 +204,17 @@ public class UserInfoSecondary {
      *
      * @return createId - 创建人id
      */
-    public Long getCreateId() {
-        return createId;
+    public Long getCreateid() {
+        return createid;
     }
 
     /**
      * 设置创建人id
      *
-     * @param createId 创建人id
+     * @param createid 创建人id
      */
-    public void setCreateId(Long createId) {
-        this.createId = createId;
+    public void setCreateid(Long createid) {
+        this.createid = createid;
     }
 
     /**
@@ -216,16 +222,16 @@ public class UserInfoSecondary {
      *
      * @return updateId - 更新人id
      */
-    public Long getUpdateId() {
-        return updateId;
+    public Long getUpdateid() {
+        return updateid;
     }
 
     /**
      * 设置更新人id
      *
-     * @param updateId 更新人id
+     * @param updateid 更新人id
      */
-    public void setUpdateId(Long updateId) {
-        this.updateId = updateId;
+    public void setUpdateid(Long updateid) {
+        this.updateid = updateid;
     }
 }
