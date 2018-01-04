@@ -61,7 +61,7 @@ public class SecondaryDataSourceConfig {
      * @throws Exception 异常
      */
     @Bean(name = "secondarySqlSessionTemplate")
-    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("secondarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("secondarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
