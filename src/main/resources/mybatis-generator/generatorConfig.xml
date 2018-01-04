@@ -5,8 +5,11 @@
 
 <generatorConfiguration>
 
+    <!-- primary数据库配置文件 -->
+    <properties resource="mybatis-generator/generatorConfig-primary.yml"/>
+
     <!-- secondary数据库配置文件 -->
-    <properties resource="mybatis-generator/generatorConfig-secondary.yml"/>
+    <!--<properties resource="mybatis-generator/generatorConfig-secondary.yml"/>-->
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -42,7 +45,7 @@
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
 
-        <table tableName="user_info_secondary">
+        <table tableName="user_info">
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
         </table>
