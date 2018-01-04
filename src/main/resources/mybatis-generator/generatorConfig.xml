@@ -46,7 +46,7 @@
         <!--</table>-->
 
         <table tableName="user_info_secondary">
-            <!--<property name="useActualColumnNames" value="true"/>-->
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
         </table>
 
