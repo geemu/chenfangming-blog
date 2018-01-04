@@ -6,7 +6,7 @@
 <generatorConfiguration>
 
     <!-- secondary数据库配置文件 -->
-    <properties resource="generatorConfig-secondary.yml"/>
+    <properties resource="mybatis-generator/generatorConfig-secondary.yml"/>
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
 
@@ -38,8 +38,8 @@
         <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${src_main_resources}"/>
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
 
-        <table tableName="report_form_app_market">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        <table tableName="log_request" domainObjectName="LogRequest">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
         </table>
 
 

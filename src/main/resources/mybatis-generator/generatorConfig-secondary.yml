@@ -1,4 +1,4 @@
-driverClass: com.mysql.jdbc.Driver
+driverClass: com.mysql.cj.jdbc.Driver
 connectionURL: jdbc:mysql://103.72.166.244:3306/primaryDataBase?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
 userId: chenfangming
 password: chenfangming
