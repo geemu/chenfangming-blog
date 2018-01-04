@@ -1,0 +1,10 @@
+driverClass: com.mysql.cj.jdbc.Driver
+connectionURL: jdbc:mysql://103.72.166.244:3306/primaryDataBase?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+userId: chenfangming
+password: chenfangming
+
+mapperPackage: me.geemu.persistence.dao.primary
+modelPackage: me.geemu.persistence.model.primary
+sqlMapperPackage: mapper.primary
+src_main_java: src/main/java
+src_main_resources: src/main/resources
