@@ -51,10 +51,6 @@ public class UserServiceSecondaryImpl implements UserServiceSecondary {
             throw new NotFoundException("用户名或密码错误");
         }
         UserInfoSecondary currentUser = existList.get(0);
-//        UserInfoSecondary currentUser = userInfoSecondaryDao.findByAccountAndPassword(account, password);
-//        if (currentUser == null) {
-//            throw new NotFoundException("用户名或密码错误");
-//        }
         String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getAccount(), currentUser.getPassword()), jwtConfig);
         // 将token写入redis
         redisUtil.put("login_user:" + token, currentUser, jwtConfig.getExpiresSecond());

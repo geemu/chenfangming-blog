@@ -5,11 +5,11 @@
 
 <generatorConfiguration>
 
-    <!--&lt;!&ndash; primary数据库配置文件 &ndash;&gt;-->
-    <!--<properties resource="mybatis-generator/generatorConfig-primary.yml"/>-->
+    <!-- primary数据库配置文件 -->
+    <properties resource="mybatis-generator/generatorConfig-primary.yml"/>
 
     <!-- secondary数据库配置文件 -->
-    <properties resource="mybatis-generator/generatorConfig-secondary.yml"/>
+    <!--<properties resource="mybatis-generator/generatorConfig-secondary.yml"/>-->
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -39,6 +39,10 @@
         <javaModelGenerator targetPackage="${modelPackage}" targetProject="${src_main_java}"/>
         <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${src_main_resources}"/>
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
+
+        <table tableName="user_info">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+        </table>
 
         <!--<table tableName="log_request" domainObjectName="LogRequest">-->
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->

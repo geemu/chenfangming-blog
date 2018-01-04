@@ -36,7 +36,7 @@ public class UserInfoController {
      * @param password 密码
      * @return token
      */
-    @ApiOperation(value = "主库用户登陆", notes = "主库用户登陆", response = LoginResponse.class)
+    @ApiOperation(value = "主库用户登陆", notes = "主库用户登陆 自己写SQL", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
         return new LoginResponse(userInfoService.findByAccountAndPassword(account, password));
@@ -49,7 +49,7 @@ public class UserInfoController {
      * @param password 密码
      * @return token
      */
-    @ApiOperation(value = "从库用户登陆", notes = "从库用户登陆", response = LoginResponse.class)
+    @ApiOperation(value = "从库用户登陆", notes = "从库用户登陆 tk mybatis", response = LoginResponse.class)
     @PostMapping("login_secondary")
     public LoginResponse loginSecondary(@RequestParam("account") String account, @RequestParam("password") String password) {
         return new LoginResponse(userServiceSecondary.findByAccountAndPassword(account, password));

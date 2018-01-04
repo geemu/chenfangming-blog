@@ -44,16 +44,6 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (currentUser == null) {
             throw new NotFoundException("用户名或密码错误");
         }
-//        Example example = new Example(UserInfo.class);
-//        example.createCriteria()
-//                .andEqualTo("account", account)
-//                .andEqualTo("password", password)
-//        ;
-//        List<UserInfo> existList = userInfoDao.selectByExample(example);
-//        if (CollectionUtils.isEmpty(existList)) {
-//            throw new NotFoundException("用户名或密码错误");
-//        }
-//        UserInfo currentUser = existList.get(0);
         String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getAccount(), currentUser.getPassword()), jwtConfig);
         // 将token写入redis
         redisUtil.put("login_user:" + token, currentUser, jwtConfig.getExpiresSecond());

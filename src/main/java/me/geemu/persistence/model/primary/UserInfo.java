@@ -26,31 +26,37 @@ public class UserInfo {
     /**
      * 0无效 1有效 是否有效
      */
+    @Column(name = "data_flag")
     private Boolean dataFlag;
 
     /**
      * 0未删除 1删除 是否删除
      */
+    @Column(name = "is_delete")
     private Boolean isDelete;
 
     /**
      * 创建时间
      */
+    @Column(name = "create_time")
     private Date createTime;
 
     /**
      * 更新时间
      */
+    @Column(name = "update_time")
     private Date updateTime;
 
     /**
      * 创建人id
      */
+    @Column(name = "create_id")
     private Long createId;
 
     /**
      * 更新人id
      */
+    @Column(name = "update_id")
     private Long updateId;
 
     /**
@@ -124,7 +130,7 @@ public class UserInfo {
     /**
      * 获取0无效 1有效 是否有效
      *
-     * @return dataFlag - 0无效 1有效 是否有效
+     * @return data_flag - 0无效 1有效 是否有效
      */
     public Boolean getDataFlag() {
         return dataFlag;
@@ -142,7 +148,7 @@ public class UserInfo {
     /**
      * 获取0未删除 1删除 是否删除
      *
-     * @return isDelete - 0未删除 1删除 是否删除
+     * @return is_delete - 0未删除 1删除 是否删除
      */
     public Boolean getIsDelete() {
         return isDelete;
@@ -160,7 +166,7 @@ public class UserInfo {
     /**
      * 获取创建时间
      *
-     * @return createTime - 创建时间
+     * @return create_time - 创建时间
      */
     public Date getCreateTime() {
         return createTime;
@@ -178,7 +184,7 @@ public class UserInfo {
     /**
      * 获取更新时间
      *
-     * @return updateTime - 更新时间
+     * @return update_time - 更新时间
      */
     public Date getUpdateTime() {
         return updateTime;
@@ -196,7 +202,7 @@ public class UserInfo {
     /**
      * 获取创建人id
      *
-     * @return createId - 创建人id
+     * @return create_id - 创建人id
      */
     public Long getCreateId() {
         return createId;
@@ -214,7 +220,7 @@ public class UserInfo {
     /**
      * 获取更新人id
      *
-     * @return updateId - 更新人id
+     * @return update_id - 更新人id
      */
     public Long getUpdateId() {
         return updateId;
