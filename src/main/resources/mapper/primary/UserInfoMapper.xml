@@ -19,7 +19,7 @@
 
   <select id="findByAccountAndPassword" resultMap="BaseResultMap">
     select *
-    from user_info_secondary
+    from user_info
     WHERE account = #{account}
     and password = #{password}
     limit 1

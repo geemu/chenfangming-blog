@@ -10,5 +10,5 @@ public interface UserInfoSecondaryMapper extends MyMapper<UserInfoSecondary> {
      * @param password 密码
      * @return 用户
      */
-    UserInfoSecondary findByAccountAndPassword(@Param("account") String account, String password);
+    UserInfoSecondary findByAccountAndPassword(@Param("account") String account, @Param("password") String password);
 }
