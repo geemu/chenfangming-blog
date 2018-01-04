@@ -8,8 +8,12 @@ import me.geemu.service.UserServiceSecondary;
 import me.geemu.util.AccessToken;
 import me.geemu.util.JwtUtil;
 import me.geemu.util.RedisUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
 
 /**
  * @author Geemu
@@ -37,9 +41,19 @@ public class UserServiceSecondaryImpl implements UserServiceSecondary {
      */
     @Override
     public String findByAccountAndPassword(String account, String password) {
+//        Example example = new Example(UserInfoSecondary.class);
+//        example.createCriteria()
+//                .andEqualTo("account", account)
+//                .andEqualTo("password", password)
+//        ;
+//        List<UserInfoSecondary> existList = userInfoSecondaryDao.selectByExample(example);
+//        if (CollectionUtils.isEmpty(existList)) {
+//            throw new NotFoundException("用户名或密码错误");
+//        }
+//        UserInfoSecondary currentUser = existList.get(0);
         UserInfoSecondary currentUser = userInfoSecondaryDao.findByAccountAndPassword(account, password);
         if (currentUser == null) {
-            throw new NotFoundException("未找到");
+            throw new NotFoundException("用户名或密码错误");
         }
         String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getAccount(), currentUser.getPassword()), jwtConfig);
         // 将token写入redis
