@@ -9,12 +9,12 @@
     <result column="account" jdbcType="CHAR" property="account" />
     <result column="password" jdbcType="CHAR" property="password" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="dataFlag" jdbcType="BIT" property="dataFlag" />
-    <result column="isDelete" jdbcType="BIT" property="isDelete" />
-    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="createId" jdbcType="BIGINT" property="createId" />
-    <result column="updateId" jdbcType="BIGINT" property="updateId" />
+    <result column="data_flag" jdbcType="BIT" property="dataFlag" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_id" jdbcType="BIGINT" property="createId" />
+    <result column="update_id" jdbcType="BIGINT" property="updateId" />
   </resultMap>
     <select id="findByAccountAndPassword" resultMap="BaseResultMap">
       select *

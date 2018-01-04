@@ -26,7 +26,6 @@ spring:
     password:
 
 
-
 # Kafka配置
 kafka:
   producer:

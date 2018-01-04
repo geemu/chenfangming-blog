@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.geemu.persistence.dao.secondary.LogRequestMapper">
+  <resultMap id="BaseResultMap" type="me.geemu.persistence.model.secondary.LogRequest">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="request_param" jdbcType="VARCHAR" property="requestParam" />
+    <result column="response_Body" jdbcType="VARCHAR" property="responseBody" />
+    <result column="request_time" jdbcType="TIMESTAMP" property="requestTime" />
+    <result column="response_time" jdbcType="TIMESTAMP" property="responseTime" />
+    <result column="spend_time" jdbcType="INTEGER" property="spendTime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="device_type" jdbcType="VARCHAR" property="deviceType" />
+    <result column="device_id" jdbcType="VARCHAR" property="deviceId" />
+    <result column="device_name" jdbcType="VARCHAR" property="deviceName" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="cookie" jdbcType="VARCHAR" property="cookie" />
+  </resultMap>
+</mapper>
