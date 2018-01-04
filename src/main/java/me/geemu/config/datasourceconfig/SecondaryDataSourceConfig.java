@@ -24,13 +24,20 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "me.geemu.persistence.dao.secondary", sqlSessionTemplateRef = "secondarySqlSessionTemplate")
 public class SecondaryDataSourceConfig {
-
+    /**
+     * @return 数据源
+     */
     @Bean(name = "secondaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
     public DataSource secondaryDataSource() {
         return DataSourceBuilder.create().build();
     }
 
+    /**
+     * @param dataSource 数据源
+     * @return SqlSessionFactory
+     * @throws Exception 异常
+     */
     @Bean(name = "secondarySqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("secondaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
@@ -39,16 +46,28 @@ public class SecondaryDataSourceConfig {
         return sessionFactoryBean.getObject();
     }
 
+    /**
+     * @param dataSource 数据源
+     * @return 事务管理
+     */
     @Bean(name = "secondaryTransactionManager")
-    public DataSourceTransactionManager testTransactionManager(@Qualifier("secondaryDataSource") DataSource dataSource) {
+    public DataSourceTransactionManager transactionManager(@Qualifier("secondaryDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
+    /**
+     * @param sqlSessionFactory 数据源
+     * @return 模板
+     * @throws Exception 异常
+     */
     @Bean(name = "secondarySqlSessionTemplate")
-    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("secondarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("secondarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
+    /**
+     * @return 自动扫描
+     */
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();

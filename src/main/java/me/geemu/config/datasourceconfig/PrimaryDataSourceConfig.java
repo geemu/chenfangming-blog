@@ -25,7 +25,9 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "me.geemu.persistence.dao.primary", sqlSessionTemplateRef = "primarySqlSessionTemplate")
 public class PrimaryDataSourceConfig {
-
+    /**
+     * @return 数据源
+     */
     @Bean(name = "primaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.primary")
     @Primary
@@ -33,6 +35,11 @@ public class PrimaryDataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
+    /**
+     * @param dataSource 数据源
+     * @return SqlSessionFactory
+     * @throws Exception 异常
+     */
     @Bean(name = "primarySqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("primaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
@@ -41,19 +48,30 @@ public class PrimaryDataSourceConfig {
         return sessionFactoryBean.getObject();
     }
 
+    /**
+     * @param dataSource 数据源
+     * @return 事务管理
+     */
     @Bean(name = "primaryTransactionManager")
     @Primary
-    public DataSourceTransactionManager testTransactionManager(@Qualifier("primaryDataSource") DataSource dataSource) {
+    public DataSourceTransactionManager transactionManager(@Qualifier("primaryDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
+    /**
+     * @param sqlSessionFactory 数据源
+     * @return 模板
+     * @throws Exception 异常
+     */
     @Bean(name = "primarySqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("primarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("primarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
-
+    /**
+     * @return 自动扫描
+     */
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
