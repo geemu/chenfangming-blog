@@ -2,9 +2,9 @@ package me.geemu.service.impl;
 
 import me.geemu.config.JwtConfig;
 import me.geemu.exception.NotFoundException;
-import me.geemu.persistence.dao.secondary.IUserInfoSecondaryDao;
+import me.geemu.persistence.dao.secondary.UserInfoSecondaryMapper;
 import me.geemu.persistence.model.secondary.UserInfoSecondary;
-import me.geemu.service.IUserServiceSecondary;
+import me.geemu.service.UserServiceSecondary;
 import me.geemu.util.AccessToken;
 import me.geemu.util.JwtUtil;
 import me.geemu.util.RedisUtil;
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
  * Description: me.geemu.service.impl
  */
 @Service
-public class IUserServiceSecondaryImpl implements IUserServiceSecondary {
+public class UserServiceSecondaryImpl implements UserServiceSecondary {
     @Autowired
-    private IUserInfoSecondaryDao userInfoSecondaryDao;
+    private UserInfoSecondaryMapper userInfoSecondaryDao;
 
     @Autowired
     private JwtConfig jwtConfig;

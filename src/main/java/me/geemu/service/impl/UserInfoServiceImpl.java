@@ -1,12 +1,10 @@
 package me.geemu.service.impl;
 
 import me.geemu.config.JwtConfig;
-import me.geemu.exception.BusinessException;
 import me.geemu.exception.NotFoundException;
-import me.geemu.exception.UnAuthorizedException;
 import me.geemu.persistence.dao.primary.IUserInfoDao;
 import me.geemu.persistence.model.primary.UserInfo;
-import me.geemu.service.IUserInfoService;
+import me.geemu.service.UserInfoService;
 import me.geemu.util.AccessToken;
 import me.geemu.util.JwtUtil;
 import me.geemu.util.RedisUtil;
@@ -20,7 +18,7 @@ import org.springframework.stereotype.Service;
  * Description:
  */
 @Service
-public class UserInfoServiceImpl implements IUserInfoService {
+public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     private IUserInfoDao userInfoDao;

@@ -3,8 +3,8 @@ package me.geemu.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.geemu.domain.response.LoginResponse;
-import me.geemu.service.IUserInfoService;
-import me.geemu.service.IUserServiceSecondary;
+import me.geemu.service.UserInfoService;
+import me.geemu.service.UserServiceSecondary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +22,12 @@ public class UserInfoController {
      * 主库
      */
     @Autowired
-    private IUserInfoService userInfoService;
+    private UserInfoService userInfoService;
     /**
      * 从库
      */
     @Autowired
-    private IUserServiceSecondary userServiceSecondary;
+    private UserServiceSecondary userServiceSecondary;
 
     /**
      * 根据用户名密码登陆

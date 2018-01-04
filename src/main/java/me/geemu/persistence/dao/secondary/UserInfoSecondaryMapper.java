@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
  * Date: 2017/12/5 12:26
  * Description:
  */
-public interface IUserInfoSecondaryDao {
+public interface UserInfoSecondaryMapper {
 
     /**
      * 根据账号密码查找用户
