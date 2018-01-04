@@ -24,32 +24,27 @@ public class LogRequest {
     /**
      * 请求参数
      */
-    @Column(name = "reqParam")
-    private String reqparam;
+    private String reqParam;
 
     /**
      * 返回内容
      */
-    @Column(name = "respBody")
-    private String respbody;
+    private String respBody;
 
     /**
      * 请求时间
      */
-    @Column(name = "reqTime")
-    private Date reqtime;
+    private Date reqTime;
 
     /**
      * 相应时间
      */
-    @Column(name = "respTime")
-    private Date resptime;
+    private Date respTime;
 
     /**
      * 耗时
      */
-    @Column(name = "spendTime")
-    private Integer spendtime;
+    private Integer spendTime;
 
     /**
      * ip
@@ -59,8 +54,7 @@ public class LogRequest {
     /**
      * 用户id 游客为0
      */
-    @Column(name = "userId")
-    private Long userid;
+    private Long userId;
 
     /**
      * token
@@ -70,26 +64,22 @@ public class LogRequest {
     /**
      * 设备类型
      */
-    @Column(name = "deviceType")
-    private String devicetype;
+    private String deviceType;
 
     /**
      * 设备ID
      */
-    @Column(name = "deviceId")
-    private String deviceid;
+    private String deviceId;
 
     /**
      * 设备名称
      */
-    @Column(name = "deviceName")
-    private String devicename;
+    private String deviceName;
 
     /**
      * UA
      */
-    @Column(name = "userAgent")
-    private String useragent;
+    private String userAgent;
 
     /**
      * cookie
@@ -155,17 +145,17 @@ public class LogRequest {
      *
      * @return reqParam - 请求参数
      */
-    public String getReqparam() {
-        return reqparam;
+    public String getReqParam() {
+        return reqParam;
     }
 
     /**
      * 设置请求参数
      *
-     * @param reqparam 请求参数
+     * @param reqParam 请求参数
      */
-    public void setReqparam(String reqparam) {
-        this.reqparam = reqparam;
+    public void setReqParam(String reqParam) {
+        this.reqParam = reqParam;
     }
 
     /**
@@ -173,17 +163,17 @@ public class LogRequest {
      *
      * @return respBody - 返回内容
      */
-    public String getRespbody() {
-        return respbody;
+    public String getRespBody() {
+        return respBody;
     }
 
     /**
      * 设置返回内容
      *
-     * @param respbody 返回内容
+     * @param respBody 返回内容
      */
-    public void setRespbody(String respbody) {
-        this.respbody = respbody;
+    public void setRespBody(String respBody) {
+        this.respBody = respBody;
     }
 
     /**
@@ -191,17 +181,17 @@ public class LogRequest {
      *
      * @return reqTime - 请求时间
      */
-    public Date getReqtime() {
-        return reqtime;
+    public Date getReqTime() {
+        return reqTime;
     }
 
     /**
      * 设置请求时间
      *
-     * @param reqtime 请求时间
+     * @param reqTime 请求时间
      */
-    public void setReqtime(Date reqtime) {
-        this.reqtime = reqtime;
+    public void setReqTime(Date reqTime) {
+        this.reqTime = reqTime;
     }
 
     /**
@@ -209,17 +199,17 @@ public class LogRequest {
      *
      * @return respTime - 相应时间
      */
-    public Date getResptime() {
-        return resptime;
+    public Date getRespTime() {
+        return respTime;
     }
 
     /**
      * 设置相应时间
      *
-     * @param resptime 相应时间
+     * @param respTime 相应时间
      */
-    public void setResptime(Date resptime) {
-        this.resptime = resptime;
+    public void setRespTime(Date respTime) {
+        this.respTime = respTime;
     }
 
     /**
@@ -227,17 +217,17 @@ public class LogRequest {
      *
      * @return spendTime - 耗时
      */
-    public Integer getSpendtime() {
-        return spendtime;
+    public Integer getSpendTime() {
+        return spendTime;
     }
 
     /**
      * 设置耗时
      *
-     * @param spendtime 耗时
+     * @param spendTime 耗时
      */
-    public void setSpendtime(Integer spendtime) {
-        this.spendtime = spendtime;
+    public void setSpendTime(Integer spendTime) {
+        this.spendTime = spendTime;
     }
 
     /**
@@ -263,17 +253,17 @@ public class LogRequest {
      *
      * @return userId - 用户id 游客为0
      */
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * 设置用户id 游客为0
      *
-     * @param userid 用户id 游客为0
+     * @param userId 用户id 游客为0
      */
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     /**
@@ -299,17 +289,17 @@ public class LogRequest {
      *
      * @return deviceType - 设备类型
      */
-    public String getDevicetype() {
-        return devicetype;
+    public String getDeviceType() {
+        return deviceType;
     }
 
     /**
      * 设置设备类型
      *
-     * @param devicetype 设备类型
+     * @param deviceType 设备类型
      */
-    public void setDevicetype(String devicetype) {
-        this.devicetype = devicetype;
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
     }
 
     /**
@@ -317,17 +307,17 @@ public class LogRequest {
      *
      * @return deviceId - 设备ID
      */
-    public String getDeviceid() {
-        return deviceid;
+    public String getDeviceId() {
+        return deviceId;
     }
 
     /**
      * 设置设备ID
      *
-     * @param deviceid 设备ID
+     * @param deviceId 设备ID
      */
-    public void setDeviceid(String deviceid) {
-        this.deviceid = deviceid;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
     /**
@@ -335,17 +325,17 @@ public class LogRequest {
      *
      * @return deviceName - 设备名称
      */
-    public String getDevicename() {
-        return devicename;
+    public String getDeviceName() {
+        return deviceName;
     }
 
     /**
      * 设置设备名称
      *
-     * @param devicename 设备名称
+     * @param deviceName 设备名称
      */
-    public void setDevicename(String devicename) {
-        this.devicename = devicename;
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
     }
 
     /**
@@ -353,17 +343,17 @@ public class LogRequest {
      *
      * @return userAgent - UA
      */
-    public String getUseragent() {
-        return useragent;
+    public String getUserAgent() {
+        return userAgent;
     }
 
     /**
      * 设置UA
      *
-     * @param useragent UA
+     * @param userAgent UA
      */
-    public void setUseragent(String useragent) {
-        this.useragent = useragent;
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
     }
 
     /**

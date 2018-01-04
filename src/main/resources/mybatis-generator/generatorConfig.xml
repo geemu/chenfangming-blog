@@ -39,7 +39,9 @@
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
 
         <table tableName="log_request" domainObjectName="LogRequest">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+
         </table>
 
 
