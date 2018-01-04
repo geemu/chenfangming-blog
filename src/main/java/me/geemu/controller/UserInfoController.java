@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @uthor: Geemu
+ * @author Geemu
  * Email: cfmmail@sina.com
  * Date: 2017/12/5 10:38
  * Description:
