@@ -7,4 +7,4 @@ mapperPackage: me.geemu.persistence.dao.secondary
 modelPackage: me.geemu.persistence.model.secondary
 sqlMapperPackage: mapper.secondary
 src_main_java: src/main/java
-src_main_resources: resources
+src_main_resources: src/main/resources

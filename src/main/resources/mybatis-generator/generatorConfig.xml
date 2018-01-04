@@ -9,7 +9,6 @@
     <properties resource="mybatis-generator/generatorConfig-secondary.yml"/>
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
-
         <property name="javaFileEncoding" value="UTF-8"/>
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
@@ -41,7 +40,6 @@
         <table tableName="log_request" domainObjectName="LogRequest">
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-
         </table>
 
 
