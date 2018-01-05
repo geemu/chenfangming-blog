@@ -6,7 +6,7 @@
 <generatorConfiguration>
 
     <!-- primary数据库配置文件 -->
-    <!--<properties resource="mybatis-generator/generatorConfig-primary.yml"/>-->
+    <properties resource="mybatis-generator/generatorConfig-primary.yml"/>
 
     <!-- secondary数据库配置文件 -->
     <!--<properties resource="mybatis-generator/generatorConfig-secondary.yml"/>-->
@@ -14,6 +14,9 @@
     <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
         <property name="autoDelimitKeywords" value="true"/>
+        <!-- 用反引号`包裹,默认是双引号 -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 
