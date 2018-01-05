@@ -6,3 +6,4 @@
 - 多数据源 
 - Redis
 - mybatis generator
+- kafka
