@@ -6,23 +6,21 @@
 <generatorConfiguration>
 
     <!-- primary数据库配置文件 -->
-    <properties resource="mybatis-generator/generatorConfig-primary.yml"/>
+    <!--<properties resource="mybatis-generator/generatorConfig-primary.yml"/>-->
 
     <!-- secondary数据库配置文件 -->
     <!--<properties resource="mybatis-generator/generatorConfig-secondary.yml"/>-->
 
-    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="autoDelimitKeywords" value="true"/>
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 
-        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="me.geemu.util.MyMapper"/>
-            <property name="caseSensitive" value="true"/>
-        </plugin>
-
         <commentGenerator>
+            <property name="javaFileEncoding" value="UTF-8"/>
             <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="false"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="${driverClass}"
@@ -40,18 +38,14 @@
         <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${src_main_resources}"/>
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
 
-        <table tableName="user_info">
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table tableName="user_info">-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
         <!--<table tableName="log_request" domainObjectName="LogRequest">-->
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
-
-        <!--<table tableName="user_info_secondary">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
-        <!--</table>-->
-
 
     </context>
 </generatorConfiguration>
