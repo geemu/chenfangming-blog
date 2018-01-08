@@ -38,8 +38,7 @@ public class JwtUtil {
          */
         JwtBuilder builder = Jwts.builder().setHeaderParam("type", "JWT")
                 .claim("userId", accessToken.getUserId())
-                .claim("userName", accessToken.getPassword())
-                .claim("password", accessToken.getPassword())
+                .claim("userName", accessToken.getUserName())
                 .setIssuer(jwtConfig.getClientId())
                 .setAudience(jwtConfig.getName())
                 .signWith(signatureAlgorithm, signingKey);

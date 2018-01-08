@@ -11,10 +11,10 @@ public interface UserInfoService {
     /**
      * 根据账号密码查找用户 返回token
      *
-     * @param account
+     * @param userName
      * @param password
      * @return
      */
-    String findByAccountAndPassword(String account, String password);
+    String findByUserNameAndPassword(String userName, String password);
 
 }

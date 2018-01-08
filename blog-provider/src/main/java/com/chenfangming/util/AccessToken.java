@@ -12,11 +12,9 @@ import lombok.Data;
 public class AccessToken {
     private Long userId;
     private String userName;
-    private String password;
 
-    public AccessToken(Long userId, String userName, String password) {
+    public AccessToken(Long userId, String userName) {
         this.userId = userId;
         this.userName = userName;
-        this.password = password;
     }
 }
