@@ -6,7 +6,7 @@
 <generatorConfiguration>
 
     <!-- primary数据库配置文件 -->
-    <properties resource="mybatis-generator/generatorConfig-primary.yml"/>
+    <!--<properties resource="mybatis-generator/generatorConfig-primary.yml"/>-->
 
     <!-- secondary数据库配置文件 -->
     <!--<properties resource="mybatis-generator/generatorConfig-secondary.yml"/>-->
@@ -22,7 +22,7 @@
 
         <commentGenerator>
             <property name="javaFileEncoding" value="UTF-8"/>
-            <property name="suppressAllComments" value="true"/>
+            <property name="suppressAllComments" value="false"/>
             <property name="suppressDate" value="false"/>
         </commentGenerator>
 

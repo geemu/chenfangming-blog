@@ -3,8 +3,8 @@ connectionURL: jdbc:mysql://103.72.166.244:3306/secondaryDataBase?serverTimezone
 userId: chenfangming
 password: chenfangming
 
-mapperPackage: me.geemu.persistence.dao.secondary
-modelPackage: me.geemu.persistence.model.secondary
+mapperPackage: com.chenfangming.persistence.dao.secondary
+modelPackage: com.chenfangming.persistence.model.secondary
 sqlMapperPackage: mapper.secondary
 src_main_java: src/main/java
 src_main_resources: src/main/resources

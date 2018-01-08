@@ -2,7 +2,7 @@ package com.chenfangming.service.impl;
 
 import com.chenfangming.config.JwtConfig;
 import com.chenfangming.exception.NotFoundException;
-import com.chenfangming.persistence.dao.primary.UserInfoMapper;
+import com.chenfangming.persistence.dao.primary.IUserInfoDao;
 import com.chenfangming.persistence.model.primary.UserInfo;
 import com.chenfangming.persistence.model.primary.UserInfoExample;
 import com.chenfangming.service.UserInfoService;
@@ -26,7 +26,7 @@ import java.util.List;
 public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
-    private UserInfoMapper userInfoMapper;
+    private IUserInfoDao userInfoDao;
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
@@ -44,7 +44,7 @@ public class UserInfoServiceImpl implements UserInfoService {
                 .andAccountEqualTo(account)
                 .andPasswordEqualTo(password)
         ;
-        List<UserInfo> existList = userInfoMapper.selectByExample(example);
+        List<UserInfo> existList = userInfoDao.selectByExample(example);
         if (CollectionUtils.isEmpty(existList)) {
             throw new NotFoundException("用户名或密码错误");
         }
