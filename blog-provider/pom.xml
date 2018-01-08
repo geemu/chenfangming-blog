@@ -12,7 +12,6 @@
     <artifactId>blog-provider</artifactId>
 
     <dependencies>
-
         <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
