@@ -6,6 +6,9 @@
     <groupId>com.chenfangming</groupId>
     <artifactId>chenfangming-blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>blog-api</module>
+    </modules>
     <packaging>pom</packaging>
 
     <name>chenfangming-blog</name>
