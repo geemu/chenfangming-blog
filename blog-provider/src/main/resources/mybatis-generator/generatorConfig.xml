@@ -46,15 +46,15 @@
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
 
-        <table tableName="sys_role">
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table tableName="sys_role">-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="role_user">
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table tableName="role_user">-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
         <!--<table tableName="log_request" domainObjectName="LogRequest">-->
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
