@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.chenfangming</groupId>
-            <artifactId>chenfangming-blog</artifactId>
+            <artifactId>blog-provider</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!-- aop -->
