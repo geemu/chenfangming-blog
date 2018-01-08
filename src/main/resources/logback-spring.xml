@@ -79,7 +79,7 @@
     </appender>
 
     <!-- 不向上传递日志 -->
-    <logger name="me.geemu" level="debug" additivity="false">
+    <logger name="com.chenfangming" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="INFO_FILE"/>
         <appender-ref ref="WARN_FILE"/>

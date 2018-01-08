@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="me.geemu.persistence.dao.primary.UserInfoMapper">
-  <resultMap id="BaseResultMap" type="me.geemu.persistence.model.primary.UserInfo">
+<mapper namespace="com.chenfangming.persistence.dao.primary.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.chenfangming.persistence.model.primary.UserInfo">
     <result column="id" jdbcType="BIGINT" property="id" />
     <result column="account" jdbcType="CHAR" property="account" />
     <result column="password" jdbcType="CHAR" property="password" />
@@ -75,7 +75,7 @@
     id, account, `password`, email, dataFlag, isDelete, createTime, updateTime, createId, 
     updateId
   </sql>
-  <select id="selectByExample" parameterType="me.geemu.persistence.model.primary.UserInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.chenfangming.persistence.model.primary.UserInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -89,13 +89,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="me.geemu.persistence.model.primary.UserInfoExample">
+  <delete id="deleteByExample" parameterType="com.chenfangming.persistence.model.primary.UserInfoExample">
     delete from user_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="me.geemu.persistence.model.primary.UserInfo">
+  <insert id="insert" parameterType="com.chenfangming.persistence.model.primary.UserInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -108,7 +108,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=BIGINT}, #{updateId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="me.geemu.persistence.model.primary.UserInfo">
+  <insert id="insertSelective" parameterType="com.chenfangming.persistence.model.primary.UserInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -172,7 +172,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="me.geemu.persistence.model.primary.UserInfoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.chenfangming.persistence.model.primary.UserInfoExample" resultType="java.lang.Long">
     select count(*) from user_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
