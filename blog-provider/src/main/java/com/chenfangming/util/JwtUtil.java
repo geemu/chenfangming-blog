@@ -20,31 +20,22 @@ import java.util.Date;
 public class JwtUtil {
 
     /**
-     * 成JWT字符串
-     *
-     * @param accessToken
-     * @param jwtConfig
-     * @return
+     * @param userName  用户名
+     * @param jwtConfig 配置参数
+     * @return 生成WT字符串
      */
-    public static String createJWT(AccessToken accessToken, JwtConfig jwtConfig) {
+    public static String createJWT(String userName, JwtConfig jwtConfig) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-        /**
-         * 生成签名密匙
-         */
+        // 生成签名密匙
         byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(jwtConfig.getBase64Secret());
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
-        /**
-         * 添加构成JWT的参数
-         */
+        // 添加构成JWT的参数
         JwtBuilder builder = Jwts.builder().setHeaderParam("type", "JWT")
-                .claim("userId", accessToken.getUserId())
-                .claim("userName", accessToken.getUserName())
+                .claim("userName", userName)
                 .setIssuer(jwtConfig.getClientId())
                 .setAudience(jwtConfig.getName())
                 .signWith(signatureAlgorithm, signingKey);
-        /**
-         * 添加token过期时间
-         */
+        // 添加token过期时间
         if (jwtConfig.getExpiresSecond() >= 0) {
             long nowMills = System.currentTimeMillis();
             Date now = new Date(nowMills);
@@ -59,9 +50,9 @@ public class JwtUtil {
     /**
      * 解析JWT密文Token
      *
-     * @param jsonWebToken
-     * @param base64Security
-     * @return
+     * @param jsonWebToken   token
+     * @param base64Security 密钥
+     * @return 参数
      */
     public static Claims parseJWT(String jsonWebToken, String base64Security) throws Exception {
         Claims claims = Jwts

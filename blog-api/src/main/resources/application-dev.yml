@@ -57,11 +57,11 @@ swagger:
 
 # Jwt相关
 audience:
-    clientId: d2Vmdw==
-    base64Secret: OTF6MjM0OTh5dGhncmlnZWhhbmdkYWVyZ2VyZ24=
-    name: geemu
+    clientId: web
+    base64Secret: YmxvZy5jaGVuZmFuZ21pbmcuY29t
+    name: blog.chenfangming.com
     expiresSecond: 604800 # 七天
 
 #设置cookie
 cookie:
-    domain: api.geemu.me
+    domain: api.blog.chenfangming.com

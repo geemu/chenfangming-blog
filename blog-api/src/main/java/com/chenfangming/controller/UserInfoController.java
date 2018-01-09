@@ -27,16 +27,14 @@ public class UserInfoController {
     private UserInfoService userInfoService;
 
     /**
-     * 根据用户名密码登陆
-     *
-     * @param account  账号
+     * @param userName 用户名
      * @param password 密码
-     * @return token
+     * @return LoginResponse 根据用户名密码登陆
      */
-    @ApiOperation(value = "主库用户登陆", notes = "主库用户登陆 自己写SQL", response = LoginResponse.class)
+    @ApiOperation(value = "用户登陆", notes = "主库用户登陆 自己写SQL", response = LoginResponse.class)
     @PostMapping("login")
-    public LoginResponse login(@RequestParam("account") String account, @RequestParam("password") String password) {
-        return new LoginResponse(userInfoService.findByUserNameAndPassword(account, password));
+    public LoginResponse login(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+        return userInfoService.findByUserNameAndPassword(userName, password);
     }
 
 }

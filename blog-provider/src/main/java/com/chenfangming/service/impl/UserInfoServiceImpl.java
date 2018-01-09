@@ -1,16 +1,18 @@
 package com.chenfangming.service.impl;
 
 import com.chenfangming.config.JwtConfig;
-import com.chenfangming.exception.BusinessException;
+import com.chenfangming.domain.response.LoginResponse;
+import com.chenfangming.enums.ConstantEnum;
 import com.chenfangming.exception.NotFoundException;
 import com.chenfangming.persistence.dao.primary.IUserInfoDao;
 import com.chenfangming.persistence.model.primary.UserInfo;
 import com.chenfangming.persistence.model.primary.UserInfoExample;
 import com.chenfangming.service.UserInfoService;
-import com.chenfangming.util.AccessToken;
 import com.chenfangming.util.JwtUtil;
 import com.chenfangming.util.RedisUtil;
 import org.apache.commons.collections.CollectionUtils;
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,14 +34,16 @@ public class UserInfoServiceImpl implements UserInfoService {
     private RedisUtil redisUtil;
     @Autowired
     private JwtConfig jwtConfig;
+    @Autowired
+    private Mapper mapper;
 
     /**
      * @param userName 根据用户名密码查找用户 账号
      * @param password 密码
-     * @return token
+     * @return LoginResponse
      */
     @Override
-    public String findByUserNameAndPassword(String userName, String password) {
+    public LoginResponse findByUserNameAndPassword(String userName, String password) {
         UserInfoExample example = new UserInfoExample();
         example.createCriteria()
                 .andUserNameEqualTo(userName)
@@ -51,21 +55,12 @@ public class UserInfoServiceImpl implements UserInfoService {
             throw new NotFoundException("用户名或密码错误");
         }
         UserInfo currentUser = existList.get(0);
-        if (currentUser.getStatus() == 3) {
-            String token = JwtUtil.createJWT(new AccessToken(currentUser.getId(), currentUser.getUserName()), jwtConfig);
-            // 将token写入redis
-            redisUtil.put("login_user:" + token, currentUser, jwtConfig.getExpiresSecond());
-            return token;
-        } else if (currentUser.getStatus() == 0) {
-            throw new BusinessException("未激活");
-        } else if (currentUser.getStatus() == 1) {
-            throw new BusinessException("锁定");
-        } else if (currentUser.getStatus() == 2) {
-            throw new BusinessException("过期");
-        } else {
-            throw new BusinessException("未知错误");
-        }
-
+        // 将token写入redis
+        String token = JwtUtil.createJWT(currentUser.getUserName(), jwtConfig);
+        redisUtil.put(ConstantEnum.PREFIX_LOGIN_USER + token, currentUser, jwtConfig.getExpiresSecond());
+        LoginResponse loginResponse = new LoginResponse();
+        loginResponse = mapper.map(currentUser, loginResponse.getClass());
+        loginResponse.setToken(token);
+        return loginResponse;
     }
-
 }

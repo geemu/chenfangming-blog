@@ -1,5 +1,7 @@
 package com.chenfangming.service;
 
+import com.chenfangming.domain.response.LoginResponse;
+
 /**
  * @author Geemu
  * Email: cfmmail@sina.com
@@ -9,12 +11,12 @@ package com.chenfangming.service;
 public interface UserInfoService {
 
     /**
-     * 根据账号密码查找用户 返回token
+     * 根据用户名密码查找用户 返回token
      *
-     * @param userName
-     * @param password
-     * @return
+     * @param userName 用户名
+     * @param password 密码
+     * @return LoginResponse
      */
-    String findByUserNameAndPassword(String userName, String password);
+    LoginResponse findByUserNameAndPassword(String userName, String password);
 
 }
