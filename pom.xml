@@ -9,6 +9,7 @@
     <modules>
         <module>blog-api</module>
         <module>blog-provider</module>
+        <module>blog-admin</module>
     </modules>
     <packaging>pom</packaging>
 

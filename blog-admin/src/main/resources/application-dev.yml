@@ -1,0 +1,67 @@
+spring:
+  # 数据库配置
+  datasource:
+    # 主库
+    primary:
+      name: primary
+      url: jdbc:mysql://103.72.166.244:3306/primaryDataBase?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+      username: chenfangming
+      password: chenfangming
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialSize: 1
+    # 从库
+    secondary:
+      name: secondary
+      url: jdbc:mysql://103.72.166.244:3306/secondaryDataBase?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+      username: chenfangming
+      password: chenfangming
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialSize: 1
+  # Redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
+
+# Kafka配置
+kafka:
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    bootstrap-servers: 127.0.0.1:9092
+  consumer:
+    group-id: geemu
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    bootstrap-servers: 127.0.0.1:9092
+
+  # http配置
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+
+# swagger开关 打开true/关闭false
+swagger:
+    enable: true
+
+# Jwt相关
+audience:
+    clientId: web
+    base64Secret: YmxvZy5jaGVuZmFuZ21pbmcuY29t
+    name: blog.chenfangming.com
+    expiresSecond: 604800 # 七天
+
+#设置cookie
+cookie:
+    domain: api.blog.chenfangming.com

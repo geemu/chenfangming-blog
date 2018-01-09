@@ -1,0 +1,4 @@
+# 环境 开发dev|测试test|生产pro
+spring:
+    profiles:
+        active: dev
