@@ -81,6 +81,7 @@ public class LogAspect {
         if (e instanceof UnAuthorizedException || e instanceof BusinessException || e instanceof NotFoundException) {
             logger.warn(logSb.toString(), e);
         } else {
+            e.printStackTrace();
             logger.error(logSb.toString(), e);
         }
     }
