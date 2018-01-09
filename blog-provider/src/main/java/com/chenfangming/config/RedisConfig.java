@@ -53,6 +53,10 @@ public class RedisConfig extends CachingConfigurerSupport {
         return rcm;
     }
 
+    /**
+     * @param factory 定义Redis模板
+     * @return 定义Redis模板
+     */
     @Bean
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
         StringRedisTemplate template = new StringRedisTemplate(factory);
