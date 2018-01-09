@@ -22,7 +22,7 @@ public class JwtUtil {
     /**
      * @param userName  用户名
      * @param jwtConfig 配置参数
-     * @return 生成WT字符串
+     * @return 生成JWT字符串
      */
     public static String createJWT(String userName, JwtConfig jwtConfig) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -32,8 +32,8 @@ public class JwtUtil {
         // 添加构成JWT的参数
         JwtBuilder builder = Jwts.builder().setHeaderParam("type", "JWT")
                 .claim("userName", userName)
-                .setIssuer(jwtConfig.getClientId())
-                .setAudience(jwtConfig.getName())
+                .setIssuer(jwtConfig.getIssuer())
+                .setAudience(jwtConfig.getAudience())
                 .signWith(signatureAlgorithm, signingKey);
         // 添加token过期时间
         if (jwtConfig.getExpiresSecond() >= 0) {
@@ -54,12 +54,10 @@ public class JwtUtil {
      * @param base64Security 密钥
      * @return 参数
      */
-    public static Claims parseJWT(String jsonWebToken, String base64Security) throws Exception {
-        Claims claims = Jwts
-                .parser()
+    public static Claims parseJWT(String jsonWebToken, String base64Security) {
+        Claims claims = Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary(base64Security))
-                .parseClaimsJws(jsonWebToken)
-                .getBody();
+                .parseClaimsJws(jsonWebToken).getBody();
         return claims;
     }
 

@@ -13,15 +13,15 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class JwtConfig {
-    @Value("${audience.clientId}")
-    private String clientId;
-    @Value("${audience.base64Secret}")
+    @Value("${jwt.issuer}")
+    private String issuer;
+    @Value("${jwt.audience}")
+    private String audience;
+    @Value("${jwt.base64Secret}")
     private String base64Secret;
-    @Value("${audience.name}")
-    private String name;
     /**
      * 有效时长
      */
-    @Value("${audience.expiresSecond}")
+    @Value("${jwt.expiresSecond}")
     private Long expiresSecond;
 }

@@ -55,12 +55,11 @@ server:
 swagger:
     enable: true
 
-# Jwt相关
-audience:
-    clientId: web
-    base64Secret: YmxvZy5jaGVuZmFuZ21pbmcuY29t
-    name: blog.chenfangming.com
-    expiresSecond: 604800 # 七天
+jwt:
+  issuer: blog.chenfangming.com  # 发行者
+  audience: api.blog.chenfangming.com # 接受者
+  base64Secret: YmxvZy5jaGVuZmFuZ21pbmcuY29t # 密钥
+  expiresSecond: 604800 # 七天
 
 #设置cookie
 cookie:
