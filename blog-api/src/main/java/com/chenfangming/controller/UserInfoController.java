@@ -34,7 +34,8 @@ public class UserInfoController {
     @ApiOperation(value = "用户登陆", notes = "主库用户登陆 自己写SQL", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("userName") String userName, @RequestParam("password") String password) {
-        return userInfoService.findByUserNameAndPassword(userName, password);
+        LoginResponse user = userInfoService.findByUserNameAndPassword(userName, password);
+        return user;
     }
 
 }

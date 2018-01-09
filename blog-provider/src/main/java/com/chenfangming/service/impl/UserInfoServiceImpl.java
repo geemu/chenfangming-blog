@@ -60,7 +60,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         redisUtil.put(ConstantEnum.PREFIX_LOGIN_USER + token, currentUser, jwtConfig.getExpiresSecond());
         LoginResponse loginResponse = new LoginResponse();
         loginResponse = mapper.map(currentUser, loginResponse.getClass());
-        loginResponse.setToken(token);
+        loginResponse.setAuthenticate(token);
         return loginResponse;
     }
 }
