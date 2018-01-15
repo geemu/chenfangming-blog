@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("user")
 @Api(description = "用户相关")
-public class UserInfoController {
+public class UserController {
     /**
      * 主库
      */
