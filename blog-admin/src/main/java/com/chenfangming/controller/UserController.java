@@ -32,7 +32,7 @@ public class UserController {
      * @param password 密码
      * @return LoginResponse 根据用户名密码登陆
      */
-    @ApiOperation(value = "用户登陆", notes = "主库用户登陆 自己写SQL", response = LoginResponse.class)
+    @ApiOperation(value = "用户登陆", notes = "主库用户登陆", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("userName") String userName, @RequestParam("password") String password) {
         LoginResponse user = userInfoService.findByUserNameAndPassword(userName, password);
