@@ -5,7 +5,7 @@
 
     <groupId>com.chenfangming</groupId>
     <artifactId>chenfangming-blog</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <modules>
         <module>blog-provider</module>
         <module>blog-admin</module>
