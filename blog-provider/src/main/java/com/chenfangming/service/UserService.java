@@ -8,7 +8,7 @@ import com.chenfangming.domain.response.LoginResponse;
  * Date: 2017/12/5 12:29
  * Description:
  */
-public interface UserInfoService {
+public interface UserService {
 
     /**
      * 根据用户名密码查找用户 返回token

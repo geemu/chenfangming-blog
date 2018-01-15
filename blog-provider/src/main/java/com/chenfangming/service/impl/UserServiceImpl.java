@@ -4,14 +4,13 @@ import com.chenfangming.config.JwtConfig;
 import com.chenfangming.domain.response.LoginResponse;
 import com.chenfangming.enums.ConstantEnum;
 import com.chenfangming.exception.NotFoundException;
-import com.chenfangming.persistence.dao.primary.IUserInfoDao;
-import com.chenfangming.persistence.model.primary.UserInfo;
-import com.chenfangming.persistence.model.primary.UserInfoExample;
-import com.chenfangming.service.UserInfoService;
+import com.chenfangming.persistence.dao.primary.IUserDao;
+import com.chenfangming.persistence.model.primary.User;
+import com.chenfangming.persistence.model.primary.UserExample;
+import com.chenfangming.service.UserService;
 import com.chenfangming.util.JwtUtil;
 import com.chenfangming.util.RedisUtil;
 import org.apache.commons.collections.CollectionUtils;
-import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +25,10 @@ import java.util.List;
  * Description:
  */
 @Service
-public class UserInfoServiceImpl implements UserInfoService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    private IUserInfoDao userInfoDao;
+    private IUserDao userDao;
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
@@ -44,17 +43,17 @@ public class UserInfoServiceImpl implements UserInfoService {
      */
     @Override
     public LoginResponse findByUserNameAndPassword(String userName, String password) {
-        UserInfoExample example = new UserInfoExample();
+        UserExample example = new UserExample();
         example.createCriteria()
                 .andUserNameEqualTo(userName)
                 .andPasswordEqualTo(password)
                 .andIsDeleteEqualTo(false)
         ;
-        List<UserInfo> existList = userInfoDao.selectByExample(example);
+        List<User> existList = userDao.selectByExample(example);
         if (CollectionUtils.isEmpty(existList)) {
             throw new NotFoundException("用户名或密码错误");
         }
-        UserInfo currentUser = existList.get(0);
+        User currentUser = existList.get(0);
         // 将token写入redis
         String token = JwtUtil.createJWT(currentUser.getUserName(), jwtConfig);
         redisUtil.put(ConstantEnum.PREFIX_LOGIN_USER + token, currentUser, jwtConfig.getExpiresSecond());

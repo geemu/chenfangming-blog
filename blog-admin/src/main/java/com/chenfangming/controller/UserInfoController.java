@@ -1,7 +1,7 @@
 package com.chenfangming.controller;
 
 import com.chenfangming.domain.response.LoginResponse;
-import com.chenfangming.service.UserInfoService;
+import com.chenfangming.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class UserInfoController {
      * 主库
      */
     @Autowired
-    private UserInfoService userInfoService;
+    private UserService userInfoService;
 
     /**
      * @param userName 用户名

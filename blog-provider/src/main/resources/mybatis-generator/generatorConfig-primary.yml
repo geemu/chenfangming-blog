@@ -1,7 +1,7 @@
 driverClass: com.mysql.cj.jdbc.Driver
-connectionURL: jdbc:mysql://103.72.166.244:3306/primaryDataBase?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
-userId: chenfangming
-password: chenfangming
+connectionURL: jdbc:mysql://localhost:3306/primaryDataBase?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+userId: root
+password: chen1436863821
 
 mapperPackage: com.chenfangming.persistence.dao.primary
 modelPackage: com.chenfangming.persistence.model.primary
