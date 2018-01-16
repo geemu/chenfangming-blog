@@ -3,7 +3,7 @@ package com.chenfangming.persistence.model.primary;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserExample {
+public class RoleExample {
     /**
      * orderByClause
      */
@@ -20,14 +20,14 @@ public class UserExample {
     protected List<Criteria> oredCriteria;
 
     /**
-     *  构造查询条件,blog_user
+     *  构造查询条件,blog_role
      */
-    public UserExample() {
+    public RoleExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
     /**
-     *  设置排序字段,blog_user
+     *  设置排序字段,blog_role
      *
      * @param orderByClause 排序字段
      */
@@ -36,14 +36,14 @@ public class UserExample {
     }
 
     /**
-     *  获取排序字段,blog_user
+     *  获取排序字段,blog_role
      */
     public String getOrderByClause() {
         return orderByClause;
     }
 
     /**
-     *  设置过滤重复数据,blog_user
+     *  设置过滤重复数据,blog_role
      *
      * @param distinct 是否过滤重复数据
      */
@@ -52,21 +52,21 @@ public class UserExample {
     }
 
     /**
-     *  是否过滤重复数据,blog_user
+     *  是否过滤重复数据,blog_role
      */
     public boolean isDistinct() {
         return distinct;
     }
 
     /**
-     *  获取当前的查询条件实例,blog_user
+     *  获取当前的查询条件实例,blog_role
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
     }
 
     /**
-     * ,blog_user
+     * ,blog_role
      *
      * @param criteria 过滤条件实例
      */
@@ -75,7 +75,7 @@ public class UserExample {
     }
 
     /**
-     * ,blog_user
+     * ,blog_role
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -84,7 +84,7 @@ public class UserExample {
     }
 
     /**
-     *  创建一个查询条件,blog_user
+     *  创建一个查询条件,blog_role
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -95,7 +95,7 @@ public class UserExample {
     }
 
     /**
-     *  内部构建查询条件对象,blog_user
+     *  内部构建查询条件对象,blog_role
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -103,7 +103,7 @@ public class UserExample {
     }
 
     /**
-     *  清除查询条件,blog_user
+     *  清除查询条件,blog_role
      */
     public void clear() {
         oredCriteria.clear();
@@ -114,7 +114,7 @@ public class UserExample {
     /**
      * @author auto generator
      * GeneratedCriteria
-     * 数据库表：blog_user
+     * 数据库表：blog_role
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -217,283 +217,143 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNull() {
-            addCriterion("userName is null");
+        public Criteria andNameEnglishIsNull() {
+            addCriterion("nameEnglish is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNotNull() {
-            addCriterion("userName is not null");
+        public Criteria andNameEnglishIsNotNull() {
+            addCriterion("nameEnglish is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameEqualTo(String value) {
-            addCriterion("userName =", value, "userName");
+        public Criteria andNameEnglishEqualTo(String value) {
+            addCriterion("nameEnglish =", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotEqualTo(String value) {
-            addCriterion("userName <>", value, "userName");
+        public Criteria andNameEnglishNotEqualTo(String value) {
+            addCriterion("nameEnglish <>", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThan(String value) {
-            addCriterion("userName >", value, "userName");
+        public Criteria andNameEnglishGreaterThan(String value) {
+            addCriterion("nameEnglish >", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
-            addCriterion("userName >=", value, "userName");
+        public Criteria andNameEnglishGreaterThanOrEqualTo(String value) {
+            addCriterion("nameEnglish >=", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThan(String value) {
-            addCriterion("userName <", value, "userName");
+        public Criteria andNameEnglishLessThan(String value) {
+            addCriterion("nameEnglish <", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThanOrEqualTo(String value) {
-            addCriterion("userName <=", value, "userName");
+        public Criteria andNameEnglishLessThanOrEqualTo(String value) {
+            addCriterion("nameEnglish <=", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLike(String value) {
-            addCriterion("userName like", value, "userName");
+        public Criteria andNameEnglishLike(String value) {
+            addCriterion("nameEnglish like", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotLike(String value) {
-            addCriterion("userName not like", value, "userName");
+        public Criteria andNameEnglishNotLike(String value) {
+            addCriterion("nameEnglish not like", value, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIn(List<String> values) {
-            addCriterion("userName in", values, "userName");
+        public Criteria andNameEnglishIn(List<String> values) {
+            addCriterion("nameEnglish in", values, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotIn(List<String> values) {
-            addCriterion("userName not in", values, "userName");
+        public Criteria andNameEnglishNotIn(List<String> values) {
+            addCriterion("nameEnglish not in", values, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameBetween(String value1, String value2) {
-            addCriterion("userName between", value1, value2, "userName");
+        public Criteria andNameEnglishBetween(String value1, String value2) {
+            addCriterion("nameEnglish between", value1, value2, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotBetween(String value1, String value2) {
-            addCriterion("userName not between", value1, value2, "userName");
+        public Criteria andNameEnglishNotBetween(String value1, String value2) {
+            addCriterion("nameEnglish not between", value1, value2, "nameEnglish");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordIsNull() {
-            addCriterion("`password` is null");
+        public Criteria andNameChineseIsNull() {
+            addCriterion("nameChinese is null");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordIsNotNull() {
-            addCriterion("`password` is not null");
+        public Criteria andNameChineseIsNotNull() {
+            addCriterion("nameChinese is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordEqualTo(String value) {
-            addCriterion("`password` =", value, "password");
+        public Criteria andNameChineseEqualTo(String value) {
+            addCriterion("nameChinese =", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordNotEqualTo(String value) {
-            addCriterion("`password` <>", value, "password");
+        public Criteria andNameChineseNotEqualTo(String value) {
+            addCriterion("nameChinese <>", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordGreaterThan(String value) {
-            addCriterion("`password` >", value, "password");
+        public Criteria andNameChineseGreaterThan(String value) {
+            addCriterion("nameChinese >", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordGreaterThanOrEqualTo(String value) {
-            addCriterion("`password` >=", value, "password");
+        public Criteria andNameChineseGreaterThanOrEqualTo(String value) {
+            addCriterion("nameChinese >=", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordLessThan(String value) {
-            addCriterion("`password` <", value, "password");
+        public Criteria andNameChineseLessThan(String value) {
+            addCriterion("nameChinese <", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordLessThanOrEqualTo(String value) {
-            addCriterion("`password` <=", value, "password");
+        public Criteria andNameChineseLessThanOrEqualTo(String value) {
+            addCriterion("nameChinese <=", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordLike(String value) {
-            addCriterion("`password` like", value, "password");
+        public Criteria andNameChineseLike(String value) {
+            addCriterion("nameChinese like", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordNotLike(String value) {
-            addCriterion("`password` not like", value, "password");
+        public Criteria andNameChineseNotLike(String value) {
+            addCriterion("nameChinese not like", value, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordIn(List<String> values) {
-            addCriterion("`password` in", values, "password");
+        public Criteria andNameChineseIn(List<String> values) {
+            addCriterion("nameChinese in", values, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordNotIn(List<String> values) {
-            addCriterion("`password` not in", values, "password");
+        public Criteria andNameChineseNotIn(List<String> values) {
+            addCriterion("nameChinese not in", values, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordBetween(String value1, String value2) {
-            addCriterion("`password` between", value1, value2, "password");
+        public Criteria andNameChineseBetween(String value1, String value2) {
+            addCriterion("nameChinese between", value1, value2, "nameChinese");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordNotBetween(String value1, String value2) {
-            addCriterion("`password` not between", value1, value2, "password");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceIsNull() {
-            addCriterion("userFace is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceIsNotNull() {
-            addCriterion("userFace is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceEqualTo(String value) {
-            addCriterion("userFace =", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceNotEqualTo(String value) {
-            addCriterion("userFace <>", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceGreaterThan(String value) {
-            addCriterion("userFace >", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceGreaterThanOrEqualTo(String value) {
-            addCriterion("userFace >=", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceLessThan(String value) {
-            addCriterion("userFace <", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceLessThanOrEqualTo(String value) {
-            addCriterion("userFace <=", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceLike(String value) {
-            addCriterion("userFace like", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceNotLike(String value) {
-            addCriterion("userFace not like", value, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceIn(List<String> values) {
-            addCriterion("userFace in", values, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceNotIn(List<String> values) {
-            addCriterion("userFace not in", values, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceBetween(String value1, String value2) {
-            addCriterion("userFace between", value1, value2, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserFaceNotBetween(String value1, String value2) {
-            addCriterion("userFace not between", value1, value2, "userFace");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkIsNull() {
-            addCriterion("remark is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkIsNotNull() {
-            addCriterion("remark is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkEqualTo(String value) {
-            addCriterion("remark =", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkNotEqualTo(String value) {
-            addCriterion("remark <>", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkGreaterThan(String value) {
-            addCriterion("remark >", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
-            addCriterion("remark >=", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkLessThan(String value) {
-            addCriterion("remark <", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkLessThanOrEqualTo(String value) {
-            addCriterion("remark <=", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkLike(String value) {
-            addCriterion("remark like", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkNotLike(String value) {
-            addCriterion("remark not like", value, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkIn(List<String> values) {
-            addCriterion("remark in", values, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkNotIn(List<String> values) {
-            addCriterion("remark not in", values, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkBetween(String value1, String value2) {
-            addCriterion("remark between", value1, value2, "remark");
-            return (Criteria) this;
-        }
-
-        public Criteria andRemarkNotBetween(String value1, String value2) {
-            addCriterion("remark not between", value1, value2, "remark");
+        public Criteria andNameChineseNotBetween(String value1, String value2) {
+            addCriterion("nameChinese not between", value1, value2, "nameChinese");
             return (Criteria) this;
         }
 
@@ -560,7 +420,7 @@ public class UserExample {
 
     /**
      * @author auto generator
-     * 数据库表：blog_user
+     * 数据库表：blog_role
      * Criteria
      */
     public static class Criteria extends GeneratedCriteria {
@@ -573,7 +433,7 @@ public class UserExample {
     /**
      * @author auto generator
      * Criterion
-     * 数据库表：blog_user
+     * 数据库表：blog_role
      */
     public static class Criterion {
         private String condition;

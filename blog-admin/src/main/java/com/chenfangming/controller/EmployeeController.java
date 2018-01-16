@@ -1,7 +1,7 @@
 package com.chenfangming.controller;
 
 import com.chenfangming.domain.response.LoginResponse;
-import com.chenfangming.service.UserService;
+import com.chenfangming.service.EmployeeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +18,24 @@ import org.springframework.web.bind.annotation.RestController;
  * Description:
  */
 @RestController
-@RequestMapping("user")
-@Api(description = "用户相关")
-public class UserController {
+@RequestMapping("employee")
+@Api(description = "员工相关")
+public class EmployeeController {
     /**
      * 主库
      */
     @Autowired
-    private UserService userInfoService;
+    private EmployeeService employeeService;
 
     /**
      * @param userName 用户名
      * @param password 密码
      * @return LoginResponse 根据用户名密码登陆
      */
-    @ApiOperation(value = "用户登陆", notes = "主库用户登陆", response = LoginResponse.class)
+    @ApiOperation(value = "员工登陆", notes = "主库员工登陆", response = LoginResponse.class)
     @PostMapping("login")
     public LoginResponse login(@RequestParam("userName") String userName, @RequestParam("password") String password) {
-        LoginResponse user = userInfoService.findByUserNameAndPassword(userName, password);
+        LoginResponse user = employeeService.findByUserNameAndPassword(userName, password);
         return user;
     }
 

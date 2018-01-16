@@ -4,10 +4,10 @@ import com.chenfangming.config.JwtConfig;
 import com.chenfangming.domain.response.LoginResponse;
 import com.chenfangming.enums.ConstantEnum;
 import com.chenfangming.exception.NotFoundException;
-import com.chenfangming.persistence.dao.primary.IUserDao;
-import com.chenfangming.persistence.model.primary.User;
-import com.chenfangming.persistence.model.primary.UserExample;
-import com.chenfangming.service.UserService;
+import com.chenfangming.persistence.dao.primary.IEmployeeDao;
+import com.chenfangming.persistence.model.primary.Employee;
+import com.chenfangming.persistence.model.primary.EmployeeExample;
+import com.chenfangming.service.EmployeeService;
 import com.chenfangming.util.JwtUtil;
 import com.chenfangming.util.RedisUtil;
 import org.apache.commons.collections.CollectionUtils;
@@ -25,10 +25,10 @@ import java.util.List;
  * Description:
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    private IUserDao userDao;
+    private IEmployeeDao employeeDao;
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
@@ -43,17 +43,17 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public LoginResponse findByUserNameAndPassword(String userName, String password) {
-        UserExample example = new UserExample();
+        EmployeeExample example = new EmployeeExample();
         example.createCriteria()
                 .andUserNameEqualTo(userName)
                 .andPasswordEqualTo(password)
                 .andIsDeleteEqualTo(false)
         ;
-        List<User> existList = userDao.selectByExample(example);
+        List<Employee> existList = employeeDao.selectByExample(example);
         if (CollectionUtils.isEmpty(existList)) {
             throw new NotFoundException("用户名或密码错误");
         }
-        User currentUser = existList.get(0);
+        Employee currentUser = existList.get(0);
         // 将token写入redis
         String token = JwtUtil.createJWT(currentUser.getUserName(), jwtConfig);
         redisUtil.put(ConstantEnum.PREFIX_LOGIN_USER + token, currentUser, jwtConfig.getExpiresSecond());
